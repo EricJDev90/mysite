@@ -1,3 +1,3 @@
-export type UserData = {
-    person: string;
+export type DataModel = {
+    SiteName: string;
 }

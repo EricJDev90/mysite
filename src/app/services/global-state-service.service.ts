@@ -5,10 +5,11 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class GlobalStateServiceService {
-  private userDataSource = new BehaviorSubject<any>(null);
-  userData = this.userDataSource.asObservable();
+  private dataSource = new BehaviorSubject<any>(null);
+  data = this.dataSource.asObservable();
 
   setUserData(data: any) {
-    this.userDataSource.next(data);
+    this.dataSource.next(data);
+    console.log(this.data)
   }
 }

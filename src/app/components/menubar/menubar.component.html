@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center ion-padding">
+      @if (data?.SiteName){
+        {{data?.SiteName}}
+      }
+    </ion-title>
+    <div class="center">
+      <ion-button fill="clear" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" class="ion-text-lowercase">Home</ion-button>
+      <ion-button fill="clear" routerLink="/projects" routerLinkActive="active" ariaCurrentWhenActive="page" class="ion-text-lowercase">Projects</ion-button>
+      <ion-button fill="clear" routerLink="/experience" routerLinkActive="active" ariaCurrentWhenActive="page" class="ion-text-lowercase">Experience</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>

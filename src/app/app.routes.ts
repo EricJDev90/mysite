@@ -10,4 +10,17 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'projects',
+    loadComponent: () => import('./pages/projects/projects.page').then( m => m.ProjectsPage)
+  },
+  {
+    path: 'experience',
+    loadComponent: () => import('./pages/experience/experience.page').then( m => m.ExperiencePage)
+  },
+  {
+    path: '**',
+    loadComponent: () => import('./pages/page-not-found/page-not-found.page').then( m => m.PageNotFoundPage)
+  },
+ // Wildcard route for a 404 page
 ];
