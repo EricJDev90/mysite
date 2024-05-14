@@ -6,9 +6,20 @@
       }
     </ion-title>
     <div class="center">
-      <ion-button fill="clear" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" class="ion-text-lowercase">Home</ion-button>
-      <ion-button fill="clear" routerLink="/projects" routerLinkActive="active" ariaCurrentWhenActive="page" class="ion-text-lowercase">Projects</ion-button>
-      <ion-button fill="clear" routerLink="/experience" routerLinkActive="active" ariaCurrentWhenActive="page" class="ion-text-lowercase">Experience</ion-button>
+      <ion-button fill="clear" routerLink="/home" routerLinkActive="active-tab" ariaCurrentWhenActive="page" class="ion-text-lowercase">
+        <ion-icon name="home" aria-hidden="true"></ion-icon>
+        Home
+      </ion-button>
+
+      <ion-button fill="clear" routerLink="/projects" routerLinkActive="active-tab" ariaCurrentWhenActive="page" class="ion-text-lowercase">
+        <ion-icon name="planet" aria-hidden="true"></ion-icon>
+        Projects
+      </ion-button>
+
+      <ion-button fill="clear" routerLink="/experience" routerLinkActive="active-tab" ariaCurrentWhenActive="page" class="ion-text-lowercase">
+        <ion-icon name="home" aria-hidden="true"></ion-icon>
+        Experience
+      </ion-button>
     </div>
   </ion-toolbar>
 </ion-header>
