@@ -19,7 +19,11 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/experience/experience.page').then( m => m.ExperiencePage)
   },
   {
+    path: 'contact',
+    loadComponent: () => import('./pages/contact/contact.page').then( m => m.ContactPage)
+  },
+  {
     path: '**',
     loadComponent: () => import('./pages/page-not-found/page-not-found.page').then( m => m.PageNotFoundPage)
-  },
+  }
 ];

@@ -1,3 +1,132 @@
 {
-    "SiteName": "Eric Writes Code" 
+    "SiteName": "Eric Writes Code",
+    "Routes": [
+        {
+            "Title": "home",
+            "Route": "/home",
+            "Icon": "home"
+        },
+        {
+            "Title": "projects",
+            "Route": "/projects",
+            "Icon": "planet"
+        },
+        {
+            "Title": "experience",
+            "Route": "/experience",
+            "Icon": "home"
+        },
+        {
+            "Title": "contact",
+            "Route": "/contact",
+            "Icon": "home"
+        }
+    ],
+    "ExperiencePage": {
+        "BeganProgrammingMessage": "I began my professional programming career March of 2021.",
+        "Experience": [
+            {
+                "Id": 1,
+                "Title": "Languages",
+                "OrderNumber": 1,
+                "Experience": [
+                    {
+                        "Label": "JS/Typescript",
+                        "StartDate": "2021-04-01T00:00:00.000Z"
+                    },
+                    {
+                        "Label": "C#",
+                        "StartDate": "2021-04-01T00:00:00.000Z"
+                    },
+                    {
+                        "Label": "HTML5",
+                        "StartDate": "2019-09-01T00:00:00.000Z"
+                    },
+                    {
+                        "Label": "CSS3",
+                        "StartDate": "2019-09-01T00:00:00.000Z"
+                    }
+                ]
+            },
+            {
+                "Id": 2,
+                "Title": "Database",
+                "OrderNumber": 2,
+                "Experience": [
+                    {
+                        "Label": "SQL",
+                        "StartDate": "2021-04-01T00:00:00.000Z"
+                    },
+                    {
+                        "Label": "MongoDB",
+                        "StartDate": "2023-06-01T00:00:00.000Z"
+                    }
+                ]
+            },
+            {
+                "Id": 3,
+                "Title": "Frameworks",
+                "OrderNumber": 3,
+                "Experience": [
+                    {
+                        "Label": "Angular 2",
+                        "StartDate": "2019-09-01T00:00:00.000Z"
+                    },
+                    {
+                        "Label": "React",
+                        "RootLanguage": "JS",
+                        "StartDate": "2021-04-01T00:00:00.000Z",
+                        "EndDate": "2022-04-01T00:00:00.000Z"
+                    },
+                    {
+                        "Label": "Ionic",
+                        "RootLanguage": "Angular",
+                        "StartDate": "2022-08-01T00:00:00.000Z"
+                    },
+                    {
+                        "Label": "gRPC",
+                        "RootLanguage": "JS",
+                        "StartDate": "2019-09-01T00:00:00.000Z"
+                    },
+                    {
+                        "Label": "Node.js",
+                        "StartDate": "2023-06-01T00:00:00.000Z"
+                    }
+                ]
+            },
+            {
+                "Id": 4,
+                "Title": "Technologies",
+                "OrderNumber": 4,
+                "Experience": [
+                    {
+                        "Label": "Git",
+                        "StartDate": "2021-04-01T00:00:00.000Z"
+                    },
+                    {
+                        "Label": "Azure Devops",
+                        "StartDate": "2021-04-01T00:00:00.000Z"
+                    }
+                ]
+            },
+            {
+                "Id": 5,
+                "Title": "Fields",
+                "OrderNumber": 5,
+                "Experience": [
+                    {
+                        "Label": "Healthcare",
+                        "StartDate": "2021-04-01T00:00:00.000Z",
+                        "MonthsSubtractor": 4
+                    },
+                    {
+                        "Label": "Fintech",
+                        "StartDate": "2022-04-01T00:00:00.000Z",
+                        "EndDate": "2021-07-01T00:00:00.000Z"
+                    }
+                ]
+            }
+        ]
+    }
+    
 }

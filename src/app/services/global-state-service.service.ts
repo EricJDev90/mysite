@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { DataModel } from '../types/globalTypes';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalStateServiceService {
-  private dataSource = new BehaviorSubject<any>(null);
+  private dataSource = new BehaviorSubject<DataModel | null>(null);
   data = this.dataSource.asObservable();
 
-  setUserData(data: any) {
+  setData(data: any) {
     this.dataSource.next(data);
     console.log(this.data)
   }

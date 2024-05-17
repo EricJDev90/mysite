@@ -1,0 +1,14 @@
+<div class="data-chart">
+  @if(data) {
+    @for (experience of data; track experience.Id) {
+      <ion-title class="title">{{experience.Title}}</ion-title>
+      @for (individualExperience of experience.Experience; track individualExperience.Label) {
+        <div class="">
+          {{individualExperience.Label}} : {{individualExperience.StartDate | date: 'MMM y'}}
+        </div>
+      }
+    }
+  }
+</div>
+
+

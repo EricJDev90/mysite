@@ -1,5 +1,17 @@
 <ion-content>
   <div class="container">
-    Experience
+    @if (pageData){
+        <!--Intro Text-->
+      <div class="">
+        <ion-title>{{pageData.BeganProgrammingMessage}}</ion-title>
+      </div>
+
+      <!--Data charts-->
+      <data-chart
+        [data]="pageData.Experience"
+      ></data-chart>
+    } @else {
+      <ion-title>Hmmm. No Data Here</ion-title>
+    }
   </div>
 </ion-content>

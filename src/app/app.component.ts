@@ -18,6 +18,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.stateService.data.subscribe(update => this.data = update) 
-    this.stateService.setUserData(data)
+    this.stateService.setData(data)
   }
 }

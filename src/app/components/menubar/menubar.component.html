@@ -6,20 +6,16 @@
       }
     </ion-title>
     <div class="center">
-      <ion-button fill="clear" routerLink="/home" routerLinkActive="active-tab" ariaCurrentWhenActive="page" class="ion-text-lowercase">
-        <ion-icon name="home" aria-hidden="true"></ion-icon>
-        Home
-      </ion-button>
-
-      <ion-button fill="clear" routerLink="/projects" routerLinkActive="active-tab" ariaCurrentWhenActive="page" class="ion-text-lowercase">
-        <ion-icon name="planet" aria-hidden="true"></ion-icon>
-        Projects
-      </ion-button>
-
-      <ion-button fill="clear" routerLink="/experience" routerLinkActive="active-tab" ariaCurrentWhenActive="page" class="ion-text-lowercase">
-        <ion-icon name="home" aria-hidden="true"></ion-icon>
-        Experience
-      </ion-button>
+      @if (data?.Routes) {
+        @for (route of data?.Routes; track route.Title) {
+          <ion-button fill="clear" routerLink={{route.Route}} routerLinkActive="active-tab" ariaCurrentWhenActive="page" class="ion-text-lowercase">
+            <ion-icon name="{{route.Icon}}" aria-hidden="true"></ion-icon>
+            {{route.Title}}
+          </ion-button>
+        }
+      } @else {
+        <ion-title>Hmmm. No Routes</ion-title>
+      }
     </div>
   </ion-toolbar>
 </ion-header>
