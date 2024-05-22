@@ -1,6 +1,7 @@
 export type DataModel = {
     SiteName: string;
     Routes: Route[];
+    ContactPage: ContactPageData;
     ExperiencePage: ExperiencePageData
 }
 
@@ -26,4 +27,11 @@ export type Experience = {
         RootLanguage?: string;
         MonthsSubtractor?: number;
     }[]
+}
+
+export type ContactPageData = {
+    ContactMessage: string;
+    Email: string;
+    LinkedInMessage: string;
+    LinkedInLink: string;
 }

@@ -22,6 +22,12 @@
             "Icon": "home"
         }
     ],
+    "ContactPage": {
+        "ContactMessage": "Want to get in touch? Reach out to me directly via email at: ",
+        "Email": "ericjdev90@gmail.com",
+        "LinkedInMessage": "You can also reach out to me on LinkedIn at: ",
+        "LinkedInLink": "https://www.linkedin.com/in/ericjdev/"
+    },
     "ExperiencePage": {
         "BeganProgrammingMessage": "I began my professional programming career March of 2021.",
         "Experience": [
