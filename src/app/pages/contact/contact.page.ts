@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonButton, IonIcon } from '@ionic/angular/standalone';
@@ -7,13 +7,13 @@ import { ContactPageData } from 'src/app/types/globalTypes';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'contact',
+  selector: 'app-contact',
   templateUrl: './contact.page.html',
   styleUrls: ['./contact.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonButton, IonIcon, CommonModule, FormsModule]
 })
-export class ContactPage {
+export class ContactPage implements OnInit {
   private router: Router = inject(Router);
   private stateService = inject(GlobalStateServiceService);
   contactPageData: ContactPageData | undefined;
@@ -26,6 +26,6 @@ export class ContactPage {
     if (this.contactPageData?.LinkedInLink) {
       this.router.navigate([this.contactPageData?.LinkedInLink])
     }
-    
+
   }
  }

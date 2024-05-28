@@ -6,7 +6,7 @@ import { GlobalStateServiceService } from 'src/app/services/global-state-service
 import { DataModel } from 'src/app/types/globalTypes';
 
 @Component({
-  selector: 'menubar',
+  selector: 'app-menubar',
   templateUrl: './menubar.component.html',
   styleUrls: ['./menubar.component.scss'],
   standalone: true,

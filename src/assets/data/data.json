@@ -22,6 +22,12 @@
             "Icon": "home"
         }
     ],
+    "HomePage" : {
+      "MessageLabel": "Welcome to my digital home!",
+      "Message": "I'm a full stack web developer with a passion for creating immersive online experiences. This website is a window into my world – a showcase of who I am, what drives me, and the projects I'm currently immersed in. Explore the pages to uncover the creativity and technical expertise that goes into every line of code I write.",
+      "RecruiterMessage": "If you'd like to get in touch with me about anyting, head over to my contact page.",
+      "SiteDisclaimer": "This website was written in Angular 17 and Ionic 8"
+    },
     "ContactPage": {
         "ContactMessage": "Want to get in touch? Reach out to me directly via email at: ",
         "Email": "ericjdev90@gmail.com",
@@ -134,5 +140,5 @@
             }
         ]
     }
-    
+
 }

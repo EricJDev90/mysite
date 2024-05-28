@@ -52,14 +52,19 @@
   top: 0;
   left: 0;
   height: 100px;
+  z-index: 999;
   width: 100%;
 }
 
 .main-content {
   position: relative;
-  top: 100px;
   left: 0;
   width: 100%;
   height: 100%
+}
+
+.container {
+  position: relative;
+  top: 25vh;
 }
 

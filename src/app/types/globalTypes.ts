@@ -2,7 +2,8 @@ export type DataModel = {
     SiteName: string;
     Routes: Route[];
     ContactPage: ContactPageData;
-    ExperiencePage: ExperiencePageData
+    ExperiencePage: ExperiencePageData;
+    HomePage: HomePageData;
 }
 
 export type Route = {
@@ -21,7 +22,7 @@ export type Experience = {
     Title: string;
     OrderNumber: number;
     Experience: {
-        Label: string; 
+        Label: string;
         StartDate: string;
         EndDate?: string;
         RootLanguage?: string;
@@ -34,4 +35,11 @@ export type ContactPageData = {
     Email: string;
     LinkedInMessage: string;
     LinkedInLink: string;
+}
+
+export type HomePageData = {
+  MessageLabel: string;
+  Message: string;
+  RecruiterMessage: string;
+  SiteDisclaimer: string;
 }

@@ -6,7 +6,7 @@ import { GlobalStateServiceService } from 'src/app/services/global-state-service
 import { DataModel } from 'src/app/types/globalTypes';
 
 @Component({
-  selector: 'projects',
+  selector: 'app-projects',
   templateUrl: './projects.page.html',
   styleUrls: ['./projects.page.scss'],
   standalone: true,

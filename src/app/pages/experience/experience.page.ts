@@ -7,7 +7,7 @@ import { ExperiencePageData } from 'src/app/types/globalTypes';
 import { DataChartComponent } from 'src/app/components/data-chart/data-chart.component';
 
 @Component({
-  selector: 'experience',
+  selector: 'app-experience',
   templateUrl: './experience.page.html',
   styleUrls: ['./experience.page.scss'],
   standalone: true,
@@ -18,6 +18,6 @@ export class ExperiencePage implements OnInit {
   pageData: ExperiencePageData | undefined = undefined;
 
   ngOnInit() {
-    this.stateService.data.subscribe(update => this.pageData = update?.ExperiencePage) 
+    this.stateService.data.subscribe(update => this.pageData = update?.ExperiencePage)
   }
 }

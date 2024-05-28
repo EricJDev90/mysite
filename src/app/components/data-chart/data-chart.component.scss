@@ -4,7 +4,20 @@ ion-title {
 
 .data-chart {
     background-color: black;
-    margin: 20px;
+    margin: 50px;
     padding: 20px;
+    height: 100%
+}
+
+.experienceBar {
+  text-align: start;
+  background-color: gray;
+  padding: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.title {
+  color: red;
 }
 
