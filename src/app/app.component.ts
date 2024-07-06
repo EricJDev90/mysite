@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { MenubarComponent } from './components/menubar/menubar.component';
-import { GlobalStateServiceService } from './services/global-state-service.service';
+import { GlobalStateService } from './services/global-state.service';
 import { DataModel } from './types/globalTypes';
 import * as data from '../assets/data/data.json';
 
@@ -13,7 +13,7 @@ import * as data from '../assets/data/data.json';
   imports: [IonApp, IonRouterOutlet, MenubarComponent],
 })
 export class AppComponent implements OnInit {
-  private stateService = inject(GlobalStateServiceService)
+  private stateService = inject(GlobalStateService)
   data: DataModel | null = null;
 
   ngOnInit(): void {

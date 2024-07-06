@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonButton, IonIcon } from '@ionic/angular/standalone';
-import { GlobalStateServiceService } from 'src/app/services/global-state-service.service';
+import { GlobalStateService } from 'src/app/services/global-state.service';
 import { ContactPageData } from 'src/app/types/globalTypes';
 import { Router } from '@angular/router';
 
@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class ContactPage implements OnInit {
   private router: Router = inject(Router);
-  private stateService = inject(GlobalStateServiceService);
+  private stateService = inject(GlobalStateService);
   contactPageData: ContactPageData | undefined;
 
   ngOnInit() {

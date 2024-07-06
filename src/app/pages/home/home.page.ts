@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, IonItem } from '@ionic/angular/standalone';
-import { GlobalStateServiceService } from 'src/app/services/global-state-service.service';
+import { GlobalStateService } from 'src/app/services/global-state.service';
 import { DataModel } from 'src/app/types/globalTypes';
 
 @Component({
@@ -11,7 +11,7 @@ import { DataModel } from 'src/app/types/globalTypes';
   imports: [IonItem, IonFooter, IonHeader, IonToolbar, IonTitle, IonContent],
 })
 export class HomePage implements OnInit {
-  private stateService = inject(GlobalStateServiceService);
+  private stateService = inject(GlobalStateService);
   data: DataModel | null = null
   ngOnInit() {
     this.stateService.data.subscribe(updates => this.data = updates)

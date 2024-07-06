@@ -5,7 +5,7 @@ import { DataModel } from '../types/globalTypes';
 @Injectable({
   providedIn: 'root'
 })
-export class GlobalStateServiceService {
+export class GlobalStateService {
   private dataSource = new BehaviorSubject<DataModel | null>(null);
   data = this.dataSource.asObservable();
 
