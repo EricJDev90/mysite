@@ -4,6 +4,7 @@ export type DataModel = {
     ContactPage: ContactPageData;
     ExperiencePage: ExperiencePageData;
     HomePage: HomePageData;
+    ProjectsPage: ProjectsPageData;
 }
 
 export type Route = {
@@ -42,4 +43,18 @@ export type HomePageData = {
   Message: string;
   RecruiterMessage: string;
   SiteDisclaimer: string;
+}
+
+export type ProjectsPageData = {
+    Title: string;
+    Message: string;
+    Projects: Project[];
+}
+
+export type Project = {
+    Name: string;
+    Route: string;
+    DisplayImageLocation: string;
+    ImgAlt: string;
+    Description: string;
 }

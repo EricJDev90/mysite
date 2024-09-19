@@ -1,5 +1,21 @@
-<ion-content>
-  <div class="container">
-    Projects
-  </div>
-</ion-content>
+@if(data && data.ProjectsPage) {
+  <ion-content>
+    <div class="container">
+      <ion-title class="title">{{data.ProjectsPage.Title}}</ion-title>
+      <div class="">{{data.ProjectsPage.Message}}</div>
+
+      <ion-grid>
+        <ion-row>
+          @for(project of data.ProjectsPage.Projects; track project.Name) {
+            <ion-col size="12" size-sm="6" size-md="4">
+              <project-card
+                [Project]="project"
+              />
+            </ion-col>
+          }
+        </ion-row>
+      </ion-grid>
+
+    </div>  
+  </ion-content>
+}

@@ -1,0 +1,15 @@
+@if(Project) {
+  <a href="/sspdf">
+    <ion-card>
+      <img alt="{{Project.ImgAlt}}" src="{{Project.DisplayImageLocation}}" />
+      <ion-card-header>
+        <ion-card-title>{{Project.Name}}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        {{Project.Description}}
+      </ion-card-content>
+    </ion-card>
+  </a>
+}
+
