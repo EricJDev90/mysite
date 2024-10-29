@@ -1,43 +1,20 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
 
-* {
-    font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
-    margin:0;
-    padding: 0;
-}
 
 .center {
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
-    width: 100%;
-    margin-bottom: 0;
-    padding-bottom: 0;
   }
 
 .container {
   text-align: center;
-
+  width: 75vw;
+  margin: auto;
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-
-  strong {
-    font-size: 20px;
-    line-height: 26px;
-  }
-
-  p {
-    font-size: 16px;
-    line-height: 22px;
-    color: #8c8c8c;
-    margin: 0;
-  }
-
+  
   a {
     text-decoration: none;
   }
@@ -47,24 +24,8 @@
   background-color:var(--ion-background-color);
 }
 
-.menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100px;
-  z-index: 999;
-  width: 100%;
-}
-
-.main-content {
-  position: relative;
-  left: 0;
-  width: 100%;
-  height: 100%
-}
-
 .container {
   position: relative;
-  top: 25vh;
+  top: 150px;
 }
 

@@ -40,8 +40,16 @@
         ]
     },
     "SSPDF": {
-        "FileNameLabel": "Enter merged pdf file name",
+        "Title": "Super Simple PDF Merge Tool",
+        "Message": "Merge PDFs together. 100% free. All of this code is run from your browser, so it is also 100% anonymous. Files loaded never leave your computer",
+        "FileNameLabel": "Enter merged PDF file name",
         "FileAlreadyExists": "Cannot upload files with the same name, some files were skipped",
-        "MissingName": "Please enter a name for the new file"
+        "MissingName": "Please enter a name for the new file",
+        "FileListLabel": "File List",
+        "NeedMoreFiles": "You need at least 2 files to merge",
+        "RemoveLabel": "Remove Selected",
+        "AddPDFsLabel": "Add PDFs",
+        "MergeLabel": "Merge PDFs!",
+        "ResetLabel": "Reset"
     }
 }

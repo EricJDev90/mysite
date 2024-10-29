@@ -1,44 +1,62 @@
 @if(data && data.HomePage) {
 <ion-content>
     <div class="container">
-        <ion-title class="title">SSPDF</ion-title>
+        <div class="title">
+            <ion-title><u>{{data.SSPDF.Title}}</u></ion-title>
+            <p>{{data.SSPDF.Message}}</p>
+        </div>
 
-            <ion-item>
-                <ion-label>{{data.SSPDF.FileNameLabel}}</ion-label>
-                <ion-input [(ngModel)]="fileName"></ion-input>
-            </ion-item>
-
+        <form [formGroup]="formGroup" (ngSubmit)="mergePDFs()">
+            <ion-label>{{data.SSPDF.FileNameLabel}}</ion-label>
             <ion-row>
-                <ion-col>File List</ion-col>
+                <ion-col size="4" offset="4">
+                    <ion-item>
+                        <ion-input formControlName="fileName"></ion-input>
+                    </ion-item>
+                </ion-col>
             </ion-row>
 
-            @for(file of files; track file.title) {
+            <div class="uploadedFiles">
                 <ion-row>
                     <ion-col>
-                        <ion-item>
-                            <ion-checkbox (click)="checkboxToggled($event.target)" justify="space-between">{{file.title}}</ion-checkbox>
-                        </ion-item>
+                        <h2><u>{{data.SSPDF.FileListLabel}}</u></h2>
                     </ion-col>
                 </ion-row>
-            }
+
+                @for(file of files; track file.title) {
+                    <ion-row>
+                        <ion-col>
+                            <ion-item>
+                                <ion-checkbox (click)="checkboxToggled($event.target)" justify="space-between">{{file.title}}</ion-checkbox>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                }
+            </div>
 
             <ion-row>
                 <ion-col>
-                    <ion-button (click)="removeSelected()" expand="block">Remove Selected</ion-button>
+                    <ion-button (click)="removeSelected()" color="warning" expand="block">{{data.SSPDF.RemoveLabel}}</ion-button>
                 </ion-col>
                 <ion-col>
-                    <ion-button (click)="fileUpload.click()" expand="block">Add pdfs to merge</ion-button>
+                    <ion-button (click)="fileUpload.click()" expand="block">{{data.SSPDF.AddPDFsLabel}}</ion-button>
                 </ion-col>
             </ion-row>
 
             <ion-row>
                 <ion-col>
-                    <ion-button (click)="reset()" expand="block">Reset</ion-button>
-                </ion-col>
-                <ion-col>
-                    <ion-button (click)="mergePDFs()" expand="block" >Merge PDFs!</ion-button>
+                    <ion-button type="submit" expand="block" >{{data.SSPDF.MergeLabel}}</ion-button>
                 </ion-col>
             </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-button (click)="reset()" color="danger" expand="block">{{data.SSPDF.ResetLabel}}</ion-button>
+                </ion-col>
+            </ion-row>
+
+        </form>
+
+        
     </div>
 
     <ion-toast

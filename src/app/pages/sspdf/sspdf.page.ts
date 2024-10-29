@@ -1,9 +1,9 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, IonItem, IonLabel, IonRow, IonCol, IonButton, IonCheckbox, IonToast, IonInput} from '@ionic/angular/standalone';
 import { GlobalStateService } from 'src/app/services/global-state.service';
 import { DataModel } from 'src/app/types/globalTypes';
 import PDFMerger from 'pdf-merger-js';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 interface PDFFile {
   title: string;
@@ -20,7 +20,6 @@ interface PDFFile {
     IonFooter, 
     IonHeader, 
     IonToolbar, 
-    FormsModule,
     IonTitle, 
     IonContent, 
     IonLabel, 
@@ -28,6 +27,7 @@ interface PDFFile {
     IonCol, 
     IonButton,
     IonCheckbox,
+    ReactiveFormsModule,
     IonToast,
     IonInput]
 })
@@ -40,7 +40,9 @@ export class SSPDFPage implements OnInit {
   acceptedFileTypes = ".pdf"
   isToastOpen: boolean = false;
   toastMessage = "A file with that name is already uploaded. Please rename and try again"
-  fileName: string = "";
+  formGroup: FormGroup = new FormGroup({
+    fileName: new FormControl("", Validators.required)
+  })
 
   ngOnInit() {
     this.stateService.data.subscribe(updates => this.data = updates)
@@ -68,7 +70,7 @@ export class SSPDFPage implements OnInit {
   }
 
   async mergePDFs() {
-    if (this.fileName == "") {
+    if (!this.formGroup.valid) {
       this.setOpen(true, this.data?.SSPDF.MissingName ? this.data.SSPDF.MissingName : "");
       return;
     }
@@ -81,11 +83,13 @@ export class SSPDFPage implements OnInit {
   
       await this.merger.setMetadata({
         "producer": "EricWritesCode pdf merger",
-        "title": this.fileName
+        "title": this.formGroup.value.fileName
       })
   
-      await this.merger.save(this.fileName);
+      await this.merger.save(this.formGroup.value.fileName);
       this.setOpen(true, "Successfully merged PDFs!");
+    } else {
+      this.setOpen(true, this.data?.SSPDF.NeedMoreFiles ? this.data.SSPDF.NeedMoreFiles : "");
     }
   }
 
@@ -112,7 +116,7 @@ export class SSPDFPage implements OnInit {
   reset(): void {
     this.merger?.reset();
     this.files = []
-    this.fileName = ""
+    this.formGroup.reset();
   }
 
   setOpen(isOpen: boolean, message: string): void {

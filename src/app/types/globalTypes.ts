@@ -61,7 +61,15 @@ export type Project = {
 }
 
 export type SSPDFPageData = {
+    Title: string;
+    Message: string;
     FileNameLabel: string;
     FileAlreadyExists: string;
     MissingName: string;
+    FileListLabel: string;
+    NeedMoreFiles: string;
+    RemoveLabel: string;
+    AddPDFsLabel: string;
+    MergeLabel: string;
+    ResetLabel: string;
 }
