@@ -8,7 +8,6 @@ import { DataModel } from 'src/app/types/globalTypes';
 @Component({
   selector: 'app-menubar',
   templateUrl: './menubar.component.html',
-  styleUrls: ['./menubar.component.scss'],
   standalone: true,
   imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, RouterOutlet, RouterLink, RouterLinkActive, IonIcon]
 })

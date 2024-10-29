@@ -1,8 +1,10 @@
 @if(data && data.ProjectsPage) {
   <ion-content>
     <div class="container">
-      <ion-title class="title">{{data.ProjectsPage.Title}}</ion-title>
-      <div class="">{{data.ProjectsPage.Message}}</div>
+      <div class="pageBackground">
+        <ion-title class="pageTitle">{{data.ProjectsPage.Title}}</ion-title>
+        <p class="pageExtra">{{data.ProjectsPage.Message}}</p>
+      </div>
 
       <ion-grid>
         <ion-row>
@@ -15,7 +17,7 @@
           }
         </ion-row>
       </ion-grid>
-
+    
     </div>  
   </ion-content>
 }

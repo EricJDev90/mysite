@@ -33,8 +33,7 @@ export type Experience = {
 }
 
 export type ContactPageData = {
-    ContactMessage: string;
-    Email: string;
+    Title: string;
     LinkedInMessage: string;
     LinkedInLink: string;
 }

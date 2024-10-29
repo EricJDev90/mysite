@@ -1,15 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title class="ion-text-center ion-padding">
-      @if (data?.SiteName){
-        {{data?.SiteName}}
-      }
-    </ion-title>
     <div class="center">
+      @if (data?.SiteName){
+        <p>{{data?.SiteName}}</p>
+      }
       @if (data?.Routes) {
         @for (route of data?.Routes; track route.Title) {
           <ion-button fill="clear" routerLink={{route.Route}} routerLinkActive="active-tab" ariaCurrentWhenActive="page" class="ion-text-lowercase">
-            <ion-icon name="{{route.Icon}}" aria-hidden="true"></ion-icon>
+            <ion-icon [name]="route.Icon" aria-hidden="true"></ion-icon>
             {{route.Title}}
           </ion-button>
         }

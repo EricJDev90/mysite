@@ -1,9 +1,21 @@
 @if(data && data.HomePage) {
 <ion-content>
     <div class="container">
-        <ion-title class="title">{{data.HomePage.MessageLabel}}</ion-title>
-        <div class="">{{data.HomePage.Message}}</div>
-        <div class="">{{data.HomePage.RecruiterMessage}}</div>
+        <div class="titleBackground">
+            <ion-title class="homeTitle">{{data.HomePage.MessageLabel}}</ion-title>
+            <div class="homeExtraText">
+                <p class="" (click)="developerDescActive = !developerDescActive">{{data.HomePage.Message}}</p>
+                <p class="">{{data.HomePage.RecruiterMessage}}</p>
+            </div>
+        </div>
+        
+        
+
+        @if(developerDescActive) {
+            <img src="assets/img/monkey-developer.gif"/>
+            <figcaption><i>This is me working on this website</i></figcaption>
+        }
+        
     </div>
 </ion-content>
 }

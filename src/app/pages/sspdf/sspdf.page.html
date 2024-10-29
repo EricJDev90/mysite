@@ -1,10 +1,10 @@
 @if(data && data.HomePage) {
 <ion-content>
     <div class="container">
-        <div class="title">
-            <ion-title><u>{{data.SSPDF.Title}}</u></ion-title>
-            <p>{{data.SSPDF.Message}}</p>
-        </div>
+        <div class="pageBackground">
+            <ion-title class="pageTitle">{{data.SSPDF.Title}}</ion-title>
+            <p class="pageExtra">{{data.SSPDF.Message}}</p>
+          </div>
 
         <form [formGroup]="formGroup" (ngSubmit)="mergePDFs()">
             <ion-label>{{data.SSPDF.FileNameLabel}}</ion-label>

@@ -13,7 +13,6 @@ interface PDFFile {
 @Component({
   selector: 'sspdf',
   templateUrl: 'sspdf.page.html',
-  styleUrls: ['sspdf.page.scss'],
   standalone: true,
   imports: [
     IonItem, 

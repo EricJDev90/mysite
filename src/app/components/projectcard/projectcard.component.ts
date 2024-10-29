@@ -7,7 +7,6 @@ import { Project } from 'src/app/types/globalTypes';
 @Component({
   selector: 'project-card',
   templateUrl: './projectcard.component.html',
-  styleUrls: ['./projectcard.component.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonButton, IonIcon, CommonModule, FormsModule, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle]
 })

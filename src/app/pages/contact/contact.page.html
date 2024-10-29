@@ -1,13 +1,16 @@
 <ion-content>
   <div class="container">
     @if(contactPageData) {
-      <ion-item>
+      <div class="pageBackground">
+        <ion-title class="pageContactTitle">{{contactPageData.Title}}</ion-title>
+    </div>
+      <ion-title class="contactPadding">
         {{contactPageData.LinkedInMessage}}
-      </ion-item>
+      </ion-title>
 
-      <ion-item>
+      <ion-title>
         <a href={{contactPageData.LinkedInLink}}><ion-button><ion-icon slot="icon-only" name="home"></ion-icon></ion-button></a>
-      </ion-item>
+      </ion-title>
     }
       
   </div>

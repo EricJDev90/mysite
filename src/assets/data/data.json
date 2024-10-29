@@ -19,11 +19,12 @@
     ],
     "HomePage" : {
       "MessageLabel": "Welcome!",
-      "Message": "I do stuff here",
+      "Message": "I'm Eric and I'm a full stack software engineer mainly utilizing Angular, C#, and Python. This is where I do small side projects.",
       "RecruiterMessage": "You can reach me from the contact page"
     },
     "ContactPage": {
-        "LinkedInMessage": "Reach out to me on LinkedIn at: ",
+        "Title": "Contact Me",
+        "LinkedInMessage": "Reach out to me on LinkedIn here",
         "LinkedInLink": "https://www.linkedin.com/in/ericjdev/"
     },
     "ProjectsPage": {
@@ -34,7 +35,7 @@
                 "Name": "Super Simple PDF Merge",
                 "Description": "An online, 100% free and safe PDF merge tool",
                 "Route": "/sspdf",
-                "DisplayImageLocation": "text",
+                "DisplayImageLocation": "assets/img/sspdf.png",
                 "ImgAlt": "Super Simple PDF Merge Img"
             }
         ]

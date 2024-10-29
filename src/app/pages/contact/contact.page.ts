@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.page.html',
-  styleUrls: ['./contact.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonButton, IonIcon, CommonModule, FormsModule]
 })

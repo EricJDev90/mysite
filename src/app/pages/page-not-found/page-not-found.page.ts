@@ -6,7 +6,6 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
 @Component({
   selector: 'app-page-not-found',
   templateUrl: './page-not-found.page.html',
-  styleUrls: ['./page-not-found.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })

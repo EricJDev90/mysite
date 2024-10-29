@@ -9,7 +9,6 @@ import { ProjectCard } from 'src/app/components/projectcard/projectcard.componen
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.page.html',
-  styleUrls: ['./projects.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, ProjectCard, IonCol, IonGrid, IonRow]
 })
