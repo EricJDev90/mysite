@@ -2,6 +2,53 @@
 <ion-content>
     <div class="container">
         <ion-title class="title">SSPDF</ion-title>
+
+            <ion-item>
+                <ion-label>{{data.SSPDF.FileNameLabel}}</ion-label>
+                <ion-input [(ngModel)]="fileName"></ion-input>
+            </ion-item>
+
+            <ion-row>
+                <ion-col>File List</ion-col>
+            </ion-row>
+
+            @for(file of files; track file.title) {
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-checkbox (click)="checkboxToggled($event.target)" justify="space-between">{{file.title}}</ion-checkbox>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            }
+
+            <ion-row>
+                <ion-col>
+                    <ion-button (click)="removeSelected()" expand="block">Remove Selected</ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button (click)="fileUpload.click()" expand="block">Add pdfs to merge</ion-button>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col>
+                    <ion-button (click)="reset()" expand="block">Reset</ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button (click)="mergePDFs()" expand="block" >Merge PDFs!</ion-button>
+                </ion-col>
+            </ion-row>
     </div>
+
+    <ion-toast
+        [isOpen]="isToastOpen"
+        [message]="toastMessage"
+        [duration]="5000"
+        (didDismiss)="setOpen(false, '')"
+    ></ion-toast>
+
+    <!--Hidden input that opens dialog and allows user to add files-->
+    <input #fileUpload type="file" multiple="multiple" style="display: none;" class="file-upload" [accept]="acceptedFileTypes" (change)="addPDFFile($event.target)">
 </ion-content>
 }

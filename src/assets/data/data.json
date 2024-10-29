@@ -38,5 +38,10 @@
                 "ImgAlt": "Super Simple PDF Merge Img"
             }
         ]
+    },
+    "SSPDF": {
+        "FileNameLabel": "Enter merged pdf file name",
+        "FileAlreadyExists": "Cannot upload files with the same name, some files were skipped",
+        "MissingName": "Please enter a name for the new file"
     }
 }

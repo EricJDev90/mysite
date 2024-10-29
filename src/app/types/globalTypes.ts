@@ -5,6 +5,7 @@ export type DataModel = {
     ExperiencePage: ExperiencePageData;
     HomePage: HomePageData;
     ProjectsPage: ProjectsPageData;
+    SSPDF: SSPDFPageData;
 }
 
 export type Route = {
@@ -57,4 +58,10 @@ export type Project = {
     DisplayImageLocation: string;
     ImgAlt: string;
     Description: string;
+}
+
+export type SSPDFPageData = {
+    FileNameLabel: string;
+    FileAlreadyExists: string;
+    MissingName: string;
 }
