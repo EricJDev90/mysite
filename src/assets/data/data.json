@@ -4,17 +4,17 @@
         {
             "Title": "home",
             "Route": "/home",
-            "Icon": "home"
+            "Icon": "home-outline"
         },
         {
             "Title": "projects",
             "Route": "/projects",
-            "Icon": "planet"
+            "Icon": "planet-outline"
         },
         {
             "Title": "contact",
             "Route": "/contact",
-            "Icon": "home"
+            "Icon": "send-outline"
         }
     ],
     "HomePage" : {
@@ -24,7 +24,7 @@
     },
     "ContactPage": {
         "Title": "Contact Me",
-        "LinkedInMessage": "Reach out to me on LinkedIn here",
+        "LinkedInMessage": "Reach out to me on LinkedIn",
         "LinkedInLink": "https://www.linkedin.com/in/ericjdev/"
     },
     "ProjectsPage": {

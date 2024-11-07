@@ -1,6 +1,6 @@
 export type DataModel = {
     SiteName: string;
-    Routes: Route[];
+    Routes: RouteModel[];
     ContactPage: ContactPageData;
     ExperiencePage: ExperiencePageData;
     HomePage: HomePageData;
@@ -8,7 +8,7 @@ export type DataModel = {
     SSPDF: SSPDFPageData;
 }
 
-export type Route = {
+export type RouteModel = {
     Title: string;
     Route: string;
     Icon: string;

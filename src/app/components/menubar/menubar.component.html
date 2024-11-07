@@ -2,12 +2,12 @@
   <ion-toolbar>
     <div class="center">
       @if (data?.SiteName){
-        <p>{{data?.SiteName}}</p>
+        <p class="ion-padding-end ion-margin-end">{{data?.SiteName}}</p>
       }
       @if (data?.Routes) {
         @for (route of data?.Routes; track route.Title) {
           <ion-button fill="clear" routerLink={{route.Route}} routerLinkActive="active-tab" ariaCurrentWhenActive="page" class="ion-text-lowercase">
-            <ion-icon [name]="route.Icon" aria-hidden="true"></ion-icon>
+            <ion-icon class="ion-padding-end" [name]="route.Icon"></ion-icon>
             {{route.Title}}
           </ion-button>
         }

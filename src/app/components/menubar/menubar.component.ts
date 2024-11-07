@@ -4,6 +4,8 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon} from '@ionic/angular/standalone';
 import { GlobalStateService } from 'src/app/services/global-state.service';
 import { DataModel } from 'src/app/types/globalTypes';
+import * as icons from 'ionicons/icons';
+import { addIcons } from 'ionicons';
 
 @Component({
   selector: 'app-menubar',
@@ -14,7 +16,9 @@ import { DataModel } from 'src/app/types/globalTypes';
 export class MenubarComponent  implements OnInit {
   private stateService = inject(GlobalStateService)
   data: DataModel | null = null;
+  
   ngOnInit() {
+    addIcons({ ...icons });
     this.stateService.data.subscribe(update => this.data = update)
   }
 }
