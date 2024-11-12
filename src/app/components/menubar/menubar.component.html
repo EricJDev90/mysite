@@ -1,19 +1,62 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <!--Desktop navigation-->
+  <ion-toolbar class="desktop">
     <div class="center">
       @if (data?.SiteName){
-        <p class="ion-padding-end ion-margin-end">{{data?.SiteName}}</p>
+        <p class="ion-padding-end ion-padding-start ion-margin-end">{{data?.SiteName}}</p>
       }
       @if (data?.Routes) {
         @for (route of data?.Routes; track route.Title) {
-          <ion-button fill="clear" routerLink={{route.Route}} routerLinkActive="active-tab" ariaCurrentWhenActive="page" class="ion-text-lowercase">
-            <ion-icon class="ion-padding-end" [name]="route.Icon"></ion-icon>
-            {{route.Title}}
-          </ion-button>
+            <ion-button fill="clear" routerLink={{route.Route}} routerLinkActive="active-tab" ariaCurrentWhenActive="page" class="ion-text-lowercase">
+              <ion-icon class="ion-padding-end" [name]="route.Icon"></ion-icon>
+              {{route.Title}}
+            </ion-button>
         }
       } @else {
         <ion-title>Hmmm. No Routes</ion-title>
       }
     </div>
   </ion-toolbar>
+
+  <!--Mobile nav-->
+  <ion-toolbar class="mobile">
+    <ion-toolbar>
+      @if (data?.SiteName){
+        <p class="ion-padding-end ion-padding-start ion-margin-end">{{data?.SiteName}}</p>
+      }
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+    <div class="center">
+      
+    </div>
+  </ion-toolbar>
 </ion-header>
+
+<!--Menu content for mobile-->
+<ion-menu side="end" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    @if (data?.Routes) {
+      @for (route of data?.Routes; track route.Title) {
+        <div>
+          <ion-button fill="clear" routerLink={{route.Route}} routerLinkActive="active-tab" (click)="closeMenu()" ariaCurrentWhenActive="page" class="ion-text-lowercase">
+            <ion-icon class="ion-padding-end ion-padding" [name]="route.Icon"></ion-icon>
+            {{route.Title}}
+          </ion-button>
+        </div>
+      }
+    } @else {
+      <ion-title>Hmmm. No Routes</ion-title>
+  }
+  </ion-content>
+</ion-menu>
+
+<!--Menu content container-->
+<div class="ion-page" id="main-content">
+</div>
