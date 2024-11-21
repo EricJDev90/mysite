@@ -85,8 +85,12 @@ export class SSPDFPage implements OnInit {
         "title": this.formGroup.value.fileName
       })
   
-      await this.merger.save(this.formGroup.value.fileName);
-      this.setOpen(true, "Successfully merged PDFs!");
+      try {
+        await this.merger.save(this.formGroup.value.fileName);
+        this.setOpen(true, "Successfully merged PDFs!");
+      } catch (e) {
+        console.error(e);
+      }
     } else {
       this.setOpen(true, this.data?.SSPDF.NeedMoreFiles ? this.data.SSPDF.NeedMoreFiles : "");
     }
