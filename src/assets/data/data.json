@@ -34,7 +34,7 @@
             {
                 "Name": "Super Simple PDF Merge",
                 "Description": "An online, 100% free and safe PDF merge tool",
-                "Route": "/sspdf",
+                "Route": "sspdf",
                 "DisplayImageLocation": "assets/img/sspdf.png",
                 "ImgAlt": "Super Simple PDF Merge Img"
             }

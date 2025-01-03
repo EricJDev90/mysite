@@ -19,7 +19,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/contact/contact.page').then( m => m.ContactPage)
   },
   {
-    path: 'sspdf',
+    path: 'projects/sspdf',
     loadComponent: () => import('./pages/sspdf/sspdf.page').then( m => m.SSPDFPage)
   },
   {
