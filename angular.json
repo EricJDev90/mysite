@@ -12,7 +12,7 @@
         }
       },
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "src", test
       "prefix": "app",
       "architect": {
         "build": {
