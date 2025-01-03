@@ -1,0 +1,56 @@
+{
+    "SiteName": "Eric Writes Code",
+    "Routes": [
+        {
+            "Title": "home",
+            "Route": "/home",
+            "Icon": "home-outline"
+        },
+        {
+            "Title": "projects",
+            "Route": "/projects",
+            "Icon": "planet-outline"
+        },
+        {
+            "Title": "contact",
+            "Route": "/contact",
+            "Icon": "send-outline"
+        }
+    ],
+    "HomePage" : {
+      "MessageLabel": "Welcome!",
+      "Message": "I'm Eric and I'm a full stack software engineer mainly utilizing Angular, C#, and Python. This is where I do small side projects.",
+      "RecruiterMessage": "You can reach me from the contact page"
+    },
+    "ContactPage": {
+        "Title": "Contact Me",
+        "LinkedInMessage": "Reach out to me on LinkedIn",
+        "LinkedInLink": "https://www.linkedin.com/in/ericjdev/"
+    },
+    "ProjectsPage": {
+        "Title": "Projects",
+        "Message": "These are the projects im working on",
+        "Projects": [
+            {
+                "Name": "Super Simple PDF Merge",
+                "Description": "An online, 100% free and safe PDF merge tool",
+                "Route": "/sspdf",
+                "DisplayImageLocation": "assets/img/sspdf.png",
+                "ImgAlt": "Super Simple PDF Merge Img"
+            }
+        ]
+    },
+    "SSPDF": {
+        "Title": "Super Simple PDF Merge Tool",
+        "Message": "Merge PDFs together. 100% free. All of this code is run from your browser, so it is also 100% anonymous. Files loaded never leave your computer",
+        "FileNameLabel": "Enter merged PDF file name",
+        "FileAlreadyExists": "Cannot upload files with the same name, some files were skipped",
+        "MissingName": "Please enter a name for the new file",
+        "FileListLabel": "File List",
+        "NeedMoreFiles": "You need at least 2 files to merge",
+        "RemoveLabel": "Remove Selected",
+        "AddPDFsLabel": "Add PDFs",
+        "MergeLabel": "Merge PDFs!",
+        "ResetLabel": "Reset"
+    }
+}
