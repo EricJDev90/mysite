@@ -7,10 +7,9 @@ import { ContactPageData } from 'src/app/types/globalTypes';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.page.html',
-  standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonButton, IonIcon, CommonModule, FormsModule]
+    selector: 'app-contact',
+    templateUrl: './contact.page.html',
+    imports: [IonContent, IonTitle, IonButton, IonIcon, CommonModule, FormsModule]
 })
 export class ContactPage implements OnInit {
   private router: Router = inject(Router);

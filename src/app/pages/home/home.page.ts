@@ -4,10 +4,9 @@ import { GlobalStateService } from 'src/app/services/global-state.service';
 import { DataModel } from 'src/app/types/globalTypes';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  standalone: true,
-  imports: [IonItem, IonFooter, IonHeader, IonToolbar, IonTitle, IonContent],
+    selector: 'app-home',
+    templateUrl: 'home.page.html',
+    imports: [IonTitle, IonContent]
 })
 export class HomePage implements OnInit {
   private stateService = inject(GlobalStateService);

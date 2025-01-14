@@ -7,10 +7,9 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
 
 @Component({
-  selector: 'project-card',
-  templateUrl: './projectcard.component.html',
-  standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonButton, IonIcon, CommonModule, FormsModule, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, RouterLink, RouterOutlet]
+    selector: 'project-card',
+    templateUrl: './projectcard.component.html',
+    imports: [CommonModule, FormsModule, IonCard, IonCardContent, IonCardHeader, IonCardTitle, RouterLink]
 })
 export class ProjectCard {
     @Input() Project: Project | null = null;

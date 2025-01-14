@@ -7,10 +7,9 @@ import * as data from '../assets/data/data.json';
 
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html',
-  standalone: true,
-  imports: [IonApp, IonRouterOutlet, MenubarComponent],
+    selector: 'app-root',
+    templateUrl: 'app.component.html',
+    imports: [IonApp, IonRouterOutlet, MenubarComponent]
 })
 export class AppComponent implements OnInit {
   private stateService = inject(GlobalStateService)

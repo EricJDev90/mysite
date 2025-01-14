@@ -7,10 +7,9 @@ import { DataModel } from 'src/app/types/globalTypes';
 import { ProjectCard } from 'src/app/components/projectcard/projectcard.component';
 
 @Component({
-  selector: 'app-projects',
-  templateUrl: './projects.page.html',
-  standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, ProjectCard, IonCol, IonGrid, IonRow]
+    selector: 'app-projects',
+    templateUrl: './projects.page.html',
+    imports: [IonContent, IonTitle, CommonModule, FormsModule, ProjectCard, IonCol, IonGrid, IonRow]
 })
 export class ProjectsPage implements OnInit {
   private stateService = inject(GlobalStateService);

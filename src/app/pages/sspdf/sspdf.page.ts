@@ -11,24 +11,21 @@ interface PDFFile {
 }
 
 @Component({
-  selector: 'sspdf',
-  templateUrl: 'sspdf.page.html',
-  standalone: true,
-  imports: [
-    IonItem, 
-    IonFooter, 
-    IonHeader, 
-    IonToolbar, 
-    IonTitle, 
-    IonContent, 
-    IonLabel, 
-    IonRow, 
-    IonCol, 
-    IonButton,
-    IonCheckbox,
-    ReactiveFormsModule,
-    IonToast,
-    IonInput]
+    selector: 'sspdf',
+    templateUrl: 'sspdf.page.html',
+    imports: [
+        IonItem,
+        IonTitle,
+        IonContent,
+        IonLabel,
+        IonRow,
+        IonCol,
+        IonButton,
+        IonCheckbox,
+        ReactiveFormsModule,
+        IonToast,
+        IonInput
+    ]
 })
 export class SSPDFPage implements OnInit {
   private stateService = inject(GlobalStateService);
