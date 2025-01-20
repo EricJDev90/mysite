@@ -23,6 +23,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/sspdf/sspdf.page').then( m => m.SSPDFPage)
   },
   {
+    path: 'projects/snake',
+    loadComponent: () => import('./pages/snake/snake.page').then(m => m.SnakePage)
+  },
+  {
     path: '**',
     loadComponent: () => import('./pages/page-not-found/page-not-found.page').then( m => m.PageNotFoundPage)
   },

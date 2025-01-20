@@ -37,6 +37,13 @@
                 "Route": "sspdf",
                 "DisplayImageLocation": "assets/img/sspdf.png",
                 "ImgAlt": "Super Simple PDF Merge Img"
+            },
+            {
+                "Name": "SnakeJS",
+                "Description": "Play snake!",
+                "Route": "snake",
+                "DisplayImageLocation": "assets/img/needimage.jpg",
+                "ImgAlt": "Play Snake!"
             }
         ]
     },
