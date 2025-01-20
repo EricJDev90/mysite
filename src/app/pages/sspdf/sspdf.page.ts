@@ -4,6 +4,7 @@ import { GlobalStateService } from 'src/app/services/global-state.service';
 import { DataModel } from 'src/app/types/globalTypes';
 import PDFMerger from 'pdf-merger-js';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { LoadingService } from 'src/app/services/loading.service';
 
 interface PDFFile {
   title: string;
@@ -29,6 +30,7 @@ interface PDFFile {
 })
 export class SSPDFPage implements OnInit {
   private stateService = inject(GlobalStateService);
+  private loadingService = inject(LoadingService);
   data: DataModel | null = null;
   merger: PDFMerger = new PDFMerger();
   selectedFiles: string[] = [];
@@ -73,21 +75,24 @@ export class SSPDFPage implements OnInit {
     if (this.files.length > 1) {
       console.log("Merging files");
 
+      this.loadingService.loadingOn();
       for (const file of this.files) {
+
         await this.merger.add(file.data)
+        .catch(error => this.setOpen(true, error))
       }
   
       await this.merger.setMetadata({
         "producer": "EricWritesCode pdf merger",
         "title": this.formGroup.value.fileName
-      })
-  
-      try {
-        await this.merger.save(this.formGroup.value.fileName);
-        this.setOpen(true, "Successfully merged PDFs!");
-      } catch (e) {
-        console.error(e);
-      }
+      }).catch(error => this.setOpen(true, error))
+      await this.merger.save(this.formGroup.value.fileName)
+        .catch((error) => this.setOpen(true, error.message))
+        .finally(() => {
+            this.setOpen(true, "Successfully merged PDFs!");
+            this.loadingService.loadingOff();
+          }  
+        )
     } else {
       this.setOpen(true, this.data?.SSPDF.NeedMoreFiles ? this.data.SSPDF.NeedMoreFiles : "");
     }
@@ -115,7 +120,7 @@ export class SSPDFPage implements OnInit {
 
   reset(): void {
     this.merger?.reset();
-    this.files = []
+    this.files = [];
     this.formGroup.reset();
   }
 

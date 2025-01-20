@@ -4,12 +4,13 @@ import { MenubarComponent } from './components/menubar/menubar.component';
 import { GlobalStateService } from './services/global-state.service';
 import { DataModel } from './types/globalTypes';
 import * as data from '../assets/data/data.json';
+import { LoadingIndicatorComponent } from './components/loading-indicator/loading-indicator.component';
 
 
 @Component({
     selector: 'app-root',
     templateUrl: 'app.component.html',
-    imports: [IonApp, IonRouterOutlet, MenubarComponent]
+    imports: [IonApp, IonRouterOutlet, MenubarComponent, LoadingIndicatorComponent]
 })
 export class AppComponent implements OnInit {
   private stateService = inject(GlobalStateService)
