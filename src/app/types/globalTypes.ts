@@ -36,6 +36,7 @@ export type ContactPageData = {
     Title: string;
     LinkedInMessage: string;
     LinkedInLink: string;
+    WebsiteVersion: string;
 }
 
 export type HomePageData = {
