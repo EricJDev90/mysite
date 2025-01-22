@@ -25,7 +25,8 @@
     "ContactPage": {
         "Title": "Contact Me",
         "LinkedInMessage": "Reach out to me on LinkedIn",
-        "LinkedInLink": "https://www.linkedin.com/in/ericjdev/"
+        "LinkedInLink": "https://www.linkedin.com/in/ericjdev/",
+        "WebsiteVersion": "Website version 1.1"
     },
     "ProjectsPage": {
         "Title": "Projects",
