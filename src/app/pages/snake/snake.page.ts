@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './snake.page.scss'
 })
 export class SnakePage implements OnInit {
-/*Snake Game in Javascript*/
-
     /*Create variables that store the last render, or drawing of the screen, the direction input to increase when a button is pressed, the last input given, 
     the initial placement of the food, number of new segments, and the score*/
     lastRenderTime: number = 0;
@@ -53,8 +51,8 @@ export class SnakePage implements OnInit {
             if (this.splashScreen) this.splashScreen.style.display = "none" //Hide the splash screen on start
             if (this.gameBoard) this.gameBoard.style.display = "grid"; //Show the game board when started
             this.enableControls() //Enable controls for the snake
-            this.gamestarted = true
-            this.main(0);
+            this.gamestarted = true;
+            this.main();
         }
     }
 
@@ -63,6 +61,7 @@ export class SnakePage implements OnInit {
             this.lastInputDirection = this.inputDirection //Store the last input as the current input when a button is pressed
             switch (e.key) { //Switch statement for each of the arrow keys, storing the input direction as the amount of change when the board is re-drawn
                 case 'ArrowUp':
+                    console.log("Arrow up");
                     if (this.lastInputDirection.y !== 0) break
                     this.inputDirection = {x:0, y: -1} //Because the x or y directions start at 0 and increase from the top left, you have to subtract 1 from the y position to move up
                     break
@@ -82,10 +81,10 @@ export class SnakePage implements OnInit {
         })
     }
 
-    main(currentTime: any) { //Create a counter to tell the program when to redraw the screen
-        //window.requestAnimationFrame(this.main) //get the animation frame of the current function
-        const secondsSinceLastRender = (currentTime - this.lastRenderTime) / 1000 //figures out how long it has been since last render
-        if (secondsSinceLastRender < 1 / this.SNAKE_SPEED) return //if the time is less than 1, exit function, this controls the speed of the render
+    main(currentTime?: any) { //Create a counter to tell the program when to redraw the screen
+        window.requestAnimationFrame(this.main.bind(this)) //get the animation frame of the current function, this.main is the callback function, which will pass the animation frame in as current time
+        const secondsSinceLastRender = (currentTime - this.lastRenderTime) / 1000 //figures out how long it has been since last render in seconds
+        if (secondsSinceLastRender < 1 / this.SNAKE_SPEED) return; //if the time is less than 1 second, exit function, do not redraw
         console.log("Render"); //debug console log
         this.lastRenderTime = currentTime //sets the last render time to the current time
         this.update() //runs the update function, advancing the game by a frame
@@ -97,7 +96,7 @@ export class SnakePage implements OnInit {
             const snakeElement = document.createElement('div'); //create a new snake body at the new positions
             snakeElement.style.gridRowStart = segment.y.toString(); //set the new snake element y position
             snakeElement.style.gridColumnStart = segment.x.toString(); //set the new snake element x position
-            snakeElement.classList.add('snake') //add a new snake class to the new div, styling the snake body
+            snakeElement.style.backgroundColor = 'black' //add a new snake class to the new div, styling the snake body
             gameBoard.appendChild(snakeElement) //add a new snake element to the gameboard
         })
     }
@@ -126,7 +125,7 @@ export class SnakePage implements OnInit {
         const foodElement = document.createElement('div');
         foodElement.style.gridRowStart = this.food.y.toString();
         foodElement.style.gridColumnStart = this.food.x.toString();
-        foodElement.classList.add('food')
+        foodElement.style.backgroundColor = 'red'
         gameBoard.appendChild(foodElement)
     }
 
