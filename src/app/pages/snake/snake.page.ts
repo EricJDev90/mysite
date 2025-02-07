@@ -89,6 +89,7 @@ export class SnakePage implements OnInit {
         this.lastRenderTime = currentTime //sets the last render time to the current time
         this.update() //runs the update function, advancing the game by a frame
         this.draw() //redraws the gameboard with the new frame parameters
+
     };
 
     drawSnake(gameBoard: any) { //draws the snake on the game board
@@ -168,9 +169,7 @@ export class SnakePage implements OnInit {
         this.gameOver = this.outsideGrid(this.snakeBody[0]) || this.snakeIntersection()
         
         if (this.gameOver) {
-            console.log("You lost");
             window.location.reload();
-            alert("You lost. Thank you for playing");
         }
     }
 

@@ -43,7 +43,7 @@
                 "Name": "SnakeJS",
                 "Description": "Play snake!",
                 "Route": "snake",
-                "DisplayImageLocation": "assets/img/needimage.jpg",
+                "DisplayImageLocation": "assets/img/snake.png",
                 "ImgAlt": "Play Snake!"
             }
         ]
