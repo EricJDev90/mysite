@@ -1,0 +1,52 @@
+h1 {
+    text-align: center;
+    display: block;
+}
+
+h2 {
+    text-align: center;
+    margin: 0;
+}
+
+main {
+    min-height: 85vh;
+    width: 99vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: black;
+}
+
+#game-board {
+    background-color: #CCC;
+    width: 80vmin;
+    height: 80vmin;
+    display: none;
+    grid-template-rows: repeat(21, 1fr);
+    grid-template-columns: repeat(21, 1fr);
+}
+
+#splashscreen {
+    background-color: aqua;
+    width: 80vw;
+    height: 80vh;
+    text-align: center;
+}
+
+#splashscreen-content {
+    margin-top: 35vh;
+}
+
+#splashscreen input {
+    height: 25%;
+    width: 25%;
+}
+
+#controls-style {
+    border: white 1px solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3vh;
+    width: 25%;
+}
