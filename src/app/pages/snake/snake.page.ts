@@ -61,6 +61,7 @@ export class SnakePage implements OnInit {
             return;
         }
     
+        /*
         const gesture = this.gestureCtrl.create({
             el: this.gameBoard,
             onMove: (detail) => this.onGestureMove(detail),
@@ -68,6 +69,7 @@ export class SnakePage implements OnInit {
         });
     
         gesture.enable();
+        */
     
         // Keyboard controls
         window.addEventListener('keydown', e => {
@@ -93,6 +95,7 @@ export class SnakePage implements OnInit {
         });
     }
     
+    /*
     private onGestureMove(event: GestureDetail) {
         // Define threshold for swipe detection
         const threshold = 70;
@@ -119,14 +122,16 @@ export class SnakePage implements OnInit {
             }
         }
     }
+        */
 
-    main(currentTime?: any) { //Create a counter to tell the program when to redraw the screen
-        if (this.main) window.requestAnimationFrame(this.main.bind(this)) //get the animation frame of the current function, this.main is the callback function, which will pass the animation frame in as current time
-        const secondsSinceLastRender = (currentTime - this.lastRenderTime) / 1000 //figures out how long it has been since last render in seconds
-        if (secondsSinceLastRender < 1 / this.SNAKE_SPEED) return; //if the time is less than 1 second, exit function, do not redraw
-        this.lastRenderTime = currentTime //sets the last render time to the current time
-        this.update() //runs the update function, advancing the game by a frame
-        this.draw() //redraws the gameboard with the new frame parameters
+    main(currentTime?: any) {
+        if (this.main) window.requestAnimationFrame(this.main.bind(this))
+        const secondsSinceLastRender = (currentTime - this.lastRenderTime) / 1000
+        const speedUpFactor = 1 / (this.SNAKE_SPEED + (this.snakeBody.length * 0.5)) 
+        if (secondsSinceLastRender < speedUpFactor) return;
+        this.lastRenderTime = currentTime
+        this.update()
+        this.draw()
 
     };
 
