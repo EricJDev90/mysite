@@ -96,7 +96,7 @@ export class SnakePage implements OnInit {
 
     private onGestureMove(event: GestureDetail) {
         // Define thresholds for swipe detection
-        const threshold = 50;
+        const threshold = 5;
         
         // Detect vertical swipes
         if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
