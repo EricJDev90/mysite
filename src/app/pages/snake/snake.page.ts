@@ -58,76 +58,66 @@ export class SnakePage implements OnInit {
 
     enableControls() {
         if (!this.gameBoard) {
-            return
+            return;
         }
-
+    
         const gesture = this.gestureCtrl.create({
             el: this.gameBoard,
-            onStart: undefined,
             onMove: (detail) => this.onGestureMove(detail),
-            onEnd: undefined,
             gestureName: 'move'
         });
-
+    
         gesture.enable();
-
-        window.addEventListener('keydown', e => { //Create an event listener for a keypress
-            this.lastInputDirection = this.inputDirection //Store the last input as the current input when a button is pressed
-            switch (e.key) { //Switch statement for each of the arrow keys, storing the input direction as the amount of change when the board is re-drawn
+    
+        // Keyboard controls
+        window.addEventListener('keydown', e => {
+            this.lastInputDirection = this.inputDirection;
+            switch (e.key) {
                 case 'ArrowUp':
-                    if (this.lastInputDirection.y !== 0) break
-                    this.inputDirection = {x:0, y: -1} //Because the x or y directions start at 0 and increase from the top left, you have to subtract 1 from the y position to move up
-                    break
+                    if (this.lastInputDirection.y === 1) break; // Prevent reversing up when going down
+                    this.inputDirection = { x: 0, y: -1 };
+                    break;
                 case 'ArrowDown':
-                    if (this.lastInputDirection.y !== 0) break
-                    this.inputDirection = {x:0, y: 1}
-                    break
+                    if (this.lastInputDirection.y === -1) break; // Prevent reversing down when going up
+                    this.inputDirection = { x: 0, y: 1 };
+                    break;
                 case 'ArrowLeft':
-                    if (this.lastInputDirection.x !== 0) break   
-                    this.inputDirection = {x:-1, y: 0}
-                    break
+                    if (this.lastInputDirection.x === 1) break; // Prevent reversing left when going right
+                    this.inputDirection = { x: -1, y: 0 };
+                    break;
                 case 'ArrowRight':
-                    if (this.lastInputDirection.x !== 0) break
-                    this.inputDirection = {x:1, y: 0}
-                    break
+                    if (this.lastInputDirection.x === -1) break; // Prevent reversing right when going left
+                    this.inputDirection = { x: 1, y: 0 };
+                    break;
             }
-        })
+        });
     }
-
+    
     private onGestureMove(event: GestureDetail) {
-        // Define thresholds for swipe detection
-        const threshold = 5;
+        // Define threshold for swipe detection
+        const threshold = 70;
         
-        // Detect vertical swipes
+        // Store current direction before processing new input
+        this.lastInputDirection = this.inputDirection;
+        
+        // Detect primary direction of movement
         if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
-            if (event.deltaY < -threshold) {
-            // Swipe Up
-            this.emitArrowKey('ArrowUp');
-            } else if (event.deltaY > threshold) {
-            // Swipe Down
-            this.emitArrowKey('ArrowDown');
+            if (event.deltaY < -threshold && this.lastInputDirection.y !== 1) {
+                // Swipe Up (only if not currently going down)
+                this.inputDirection = { x: 0, y: -1 };
+            } else if (event.deltaY > threshold && this.lastInputDirection.y !== -1) {
+                // Swipe Down (only if not currently going up)
+                this.inputDirection = { x: 0, y: 1 };
             }
-        } 
-        // Detect horizontal swipes
-        else {
-            if (event.deltaX < -threshold) {
-            // Swipe Left
-            this.emitArrowKey('ArrowLeft');
-            } else if (event.deltaX > threshold) {
-            // Swipe Right
-            this.emitArrowKey('ArrowRight');
+        } else {
+            if (event.deltaX < -threshold && this.lastInputDirection.x !== 1) {
+                // Swipe Left (only if not currently going right)
+                this.inputDirection = { x: -1, y: 0 };
+            } else if (event.deltaX > threshold && this.lastInputDirection.x !== -1) {
+                // Swipe Right (only if not currently going left)
+                this.inputDirection = { x: 1, y: 0 };
             }
         }
-    }
-
-    // Helper function to emit keyboard events
-    private emitArrowKey(key: string) {
-        const keyEvent = new KeyboardEvent('keydown', {
-        key: key,
-        code: key,
-        bubbles: true
-        });
-        document.dispatchEvent(keyEvent);
     }
 
     main(currentTime?: any) { //Create a counter to tell the program when to redraw the screen
