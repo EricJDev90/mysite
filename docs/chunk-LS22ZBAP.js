@@ -1,1 +1,0 @@
-import{M as e,f as r}from"./chunk-PXDDC3VC.js";var n=(()=>{let t=class t{constructor(){this.dataSource=new r(null),this.data=this.dataSource.asObservable()}setData(o){this.dataSource.next(o),console.log(this.data)}};t.\u0275fac=function(i){return new(i||t)},t.\u0275prov=e({token:t,factory:t.\u0275fac,providedIn:"root"});let a=t;return a})();export{n as a};

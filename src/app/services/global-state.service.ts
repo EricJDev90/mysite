@@ -11,6 +11,5 @@ export class GlobalStateService {
 
   setData(data: any) {
     this.dataSource.next(data);
-    console.log(this.data)
   }
 }

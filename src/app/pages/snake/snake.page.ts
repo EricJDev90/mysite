@@ -38,9 +38,6 @@ export class SnakePage implements OnInit {
       this.scoreBoard = document.getElementById("score-board");
       this.startbutton = document.getElementById("startbutton");
 
-      //start initial animation frame request
-      window.requestAnimationFrame(this.main);
-
       window.addEventListener('keydown', e => { //Event listenter for if Enter is pressed to start the game
         if ((e.key) == 'Enter') { //check if the key pressed is the enter key
             this.startFunction(); //if true, start the game
@@ -134,10 +131,9 @@ export class SnakePage implements OnInit {
     }
 
     main(currentTime?: any) { //Create a counter to tell the program when to redraw the screen
-        window.requestAnimationFrame(this.main.bind(this)) //get the animation frame of the current function, this.main is the callback function, which will pass the animation frame in as current time
+        if (this.main) window.requestAnimationFrame(this.main.bind(this)) //get the animation frame of the current function, this.main is the callback function, which will pass the animation frame in as current time
         const secondsSinceLastRender = (currentTime - this.lastRenderTime) / 1000 //figures out how long it has been since last render in seconds
         if (secondsSinceLastRender < 1 / this.SNAKE_SPEED) return; //if the time is less than 1 second, exit function, do not redraw
-        console.log("Render"); //debug console log
         this.lastRenderTime = currentTime //sets the last render time to the current time
         this.update() //runs the update function, advancing the game by a frame
         this.draw() //redraws the gameboard with the new frame parameters
@@ -147,8 +143,8 @@ export class SnakePage implements OnInit {
     drawSnake(gameBoard: any) { //draws the snake on the game board
         this.snakeBody.forEach(segment => { //do the following for each segment of the snake
             const snakeElement = document.createElement('div'); //create a new snake body at the new positions
-            snakeElement.style.gridRowStart = segment.y.toString(); //set the new snake element y position
-            snakeElement.style.gridColumnStart = segment.x.toString(); //set the new snake element x position
+            snakeElement.style.gridRowStart = segment.y?.toString(); //set the new snake element y position
+            snakeElement.style.gridColumnStart = segment.x?.toString(); //set the new snake element x position
             snakeElement.style.backgroundColor = 'black' //add a new snake class to the new div, styling the snake body
             gameBoard.appendChild(snakeElement) //add a new snake element to the gameboard
         })
