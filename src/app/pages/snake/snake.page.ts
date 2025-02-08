@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { GestureController } from '@ionic/angular';
+import { GestureDetail } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'snake',
@@ -16,6 +18,7 @@ export class SnakePage implements OnInit {
     score = 0
     gamestarted = false;
     gameOver: boolean = false;
+    gestureCtrl = inject(GestureController); //Used for mobile controls
 
     //Set the constants for how the game will run
     SNAKE_SPEED = 6;
@@ -57,11 +60,24 @@ export class SnakePage implements OnInit {
     }
 
     enableControls() {
+        if (!this.gameBoard) {
+            return
+        }
+
+        const gesture = this.gestureCtrl.create({
+            el: this.gameBoard,
+            onStart: undefined,
+            onMove: (detail) => this.onGestureMove(detail),
+            onEnd: undefined,
+            gestureName: 'move'
+        });
+
+        gesture.enable();
+
         window.addEventListener('keydown', e => { //Create an event listener for a keypress
             this.lastInputDirection = this.inputDirection //Store the last input as the current input when a button is pressed
             switch (e.key) { //Switch statement for each of the arrow keys, storing the input direction as the amount of change when the board is re-drawn
                 case 'ArrowUp':
-                    console.log("Arrow up");
                     if (this.lastInputDirection.y !== 0) break
                     this.inputDirection = {x:0, y: -1} //Because the x or y directions start at 0 and increase from the top left, you have to subtract 1 from the y position to move up
                     break
@@ -79,6 +95,42 @@ export class SnakePage implements OnInit {
                     break
             }
         })
+    }
+
+    private onGestureMove(event: GestureDetail) {
+        // Define thresholds for swipe detection
+        const threshold = 50;
+        
+        // Detect vertical swipes
+        if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+            if (event.deltaY < -threshold) {
+            // Swipe Up
+            this.emitArrowKey('ArrowUp');
+            } else if (event.deltaY > threshold) {
+            // Swipe Down
+            this.emitArrowKey('ArrowDown');
+            }
+        } 
+        // Detect horizontal swipes
+        else {
+            if (event.deltaX < -threshold) {
+            // Swipe Left
+            this.emitArrowKey('ArrowLeft');
+            } else if (event.deltaX > threshold) {
+            // Swipe Right
+            this.emitArrowKey('ArrowRight');
+            }
+        }
+    }
+
+    // Helper function to emit keyboard events
+    private emitArrowKey(key: string) {
+        const keyEvent = new KeyboardEvent('keydown', {
+        key: key,
+        code: key,
+        bubbles: true
+        });
+        document.dispatchEvent(keyEvent);
     }
 
     main(currentTime?: any) { //Create a counter to tell the program when to redraw the screen
