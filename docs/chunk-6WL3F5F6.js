@@ -1,1 +1,0 @@
-import{a as e,f as o}from"./chunk-ZRAY7DO5.js";var n=(()=>{let t=class t{constructor(){this.dataSource=new e(null),this.data=this.dataSource.asObservable()}setData(a){this.dataSource.next(a)}};t.\u0275fac=function(i){return new(i||t)},t.\u0275prov=o({token:t,factory:t.\u0275fac,providedIn:"root"});let r=t;return r})();export{n as a};
