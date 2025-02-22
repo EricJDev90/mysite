@@ -103,6 +103,7 @@ export class SnakePage implements OnInit {
         });
     }
 
+    //mobile gestures
     handleGesure() {
         let x = this.touchendX - this.touchstartX;
         let y = this.touchendY - this.touchstartY;
@@ -111,24 +112,18 @@ export class SnakePage implements OnInit {
         if (Math.abs(x) > this.threshold || Math.abs(y) > this.threshold) {
             if (yx <= this.limit) {
                 if (x < 0) {
-                    console.log("left");
                     this.moveLeft();
                 } else {
-                    console.log("right");
                     this.moveRight();
                 }
             }
             if (xy <= this.limit) {
                 if (y < 0) {
-                    console.log("top");
                     this.moveUp();
                 } else {
-                    console.log("bottom");
                     this.moveDown();
                 }
             }
-        } else {
-            console.log("tap");
         }
     }
 
