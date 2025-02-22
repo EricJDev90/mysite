@@ -1,6 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { GestureController } from '@ionic/angular';
-import { GestureDetail } from '@ionic/angular/standalone';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'snake',
@@ -14,11 +12,20 @@ export class SnakePage implements OnInit {
     inputDirection = {x: 0, y: 0}
     lastInputDirection = {x: 0, y: 0}
     food = {x: 10, y: 5}
-    newSegments = 0
-    score = 0
+    newSegments: number = 0
+    score: number = 0
     gamestarted = false;
     gameOver: boolean = false;
-    gestureCtrl = inject(GestureController); //Used for mobile controls
+    pageWidth: number = window.innerWidth;
+    threshold: number = Math.max(1,Math.floor(0.01 * (this.pageWidth)));
+    limit: number = Math.tan(45 * 1.5 / 180 * Math.PI);
+
+    //Mobile vars
+    touchstartX: number = 0;
+    touchstartY: number = 0;
+    touchendX: number = 0;
+    touchendY: number = 0;
+
 
     //Set the constants for how the game will run
     SNAKE_SPEED = 6;
@@ -60,69 +67,90 @@ export class SnakePage implements OnInit {
         if (!this.gameBoard) {
             return;
         }
-    
-        /*
-        const gesture = this.gestureCtrl.create({
-            el: this.gameBoard,
-            onMove: (detail) => this.onGestureMove(detail),
-            gestureName: 'move'
-        });
-    
-        gesture.enable();
-        */
+
+        //Turn on Mobile controls
+        if (this.gameBoard) {
+            this.gameBoard.addEventListener('touchstart', e => {
+                this.touchstartX = e.changedTouches[0].screenX;
+                this.touchstartY = e.changedTouches[0].screenY;
+            }, false);
+            
+            this.gameBoard.addEventListener('touchend', e => {
+                this.touchendX = e.changedTouches[0].screenX;
+                this.touchendY = e.changedTouches[0].screenY;
+                this.handleGesure();
+            }, false);
+        }
+        
     
         // Keyboard controls
         window.addEventListener('keydown', e => {
             this.lastInputDirection = this.inputDirection;
             switch (e.key) {
                 case 'ArrowUp':
-                    if (this.lastInputDirection.y === 1) break; // Prevent reversing up when going down
-                    this.inputDirection = { x: 0, y: -1 };
+                    this.moveUp();
                     break;
                 case 'ArrowDown':
-                    if (this.lastInputDirection.y === -1) break; // Prevent reversing down when going up
-                    this.inputDirection = { x: 0, y: 1 };
+                    this.moveDown();
                     break;
                 case 'ArrowLeft':
-                    if (this.lastInputDirection.x === 1) break; // Prevent reversing left when going right
-                    this.inputDirection = { x: -1, y: 0 };
+                    this.moveLeft();
                     break;
                 case 'ArrowRight':
-                    if (this.lastInputDirection.x === -1) break; // Prevent reversing right when going left
-                    this.inputDirection = { x: 1, y: 0 };
+                    this.moveRight();
                     break;
             }
         });
     }
-    
-    /*
-    private onGestureMove(event: GestureDetail) {
-        // Define threshold for swipe detection
-        const threshold = 70;
-        
-        // Store current direction before processing new input
-        this.lastInputDirection = this.inputDirection;
-        
-        // Detect primary direction of movement
-        if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
-            if (event.deltaY < -threshold && this.lastInputDirection.y !== 1) {
-                // Swipe Up (only if not currently going down)
-                this.inputDirection = { x: 0, y: -1 };
-            } else if (event.deltaY > threshold && this.lastInputDirection.y !== -1) {
-                // Swipe Down (only if not currently going up)
-                this.inputDirection = { x: 0, y: 1 };
+
+    handleGesure() {
+        let x = this.touchendX - this.touchstartX;
+        let y = this.touchendY - this.touchstartY;
+        let xy = Math.abs(x / y);
+        let yx = Math.abs(y / x);
+        if (Math.abs(x) > this.threshold || Math.abs(y) > this.threshold) {
+            if (yx <= this.limit) {
+                if (x < 0) {
+                    console.log("left");
+                    this.moveLeft();
+                } else {
+                    console.log("right");
+                    this.moveRight();
+                }
+            }
+            if (xy <= this.limit) {
+                if (y < 0) {
+                    console.log("top");
+                    this.moveUp();
+                } else {
+                    console.log("bottom");
+                    this.moveDown();
+                }
             }
         } else {
-            if (event.deltaX < -threshold && this.lastInputDirection.x !== 1) {
-                // Swipe Left (only if not currently going right)
-                this.inputDirection = { x: -1, y: 0 };
-            } else if (event.deltaX > threshold && this.lastInputDirection.x !== -1) {
-                // Swipe Right (only if not currently going left)
-                this.inputDirection = { x: 1, y: 0 };
-            }
+            console.log("tap");
         }
     }
-        */
+
+    moveUp() {
+        if (this.lastInputDirection.y === 1) return; // Prevent reversing up when going down
+        this.inputDirection = { x: 0, y: -1 };
+    }
+
+    moveDown() {
+        if (this.lastInputDirection.y === -1) return; // Prevent reversing down when going up
+        this.inputDirection = { x: 0, y: 1 };
+    }
+
+    moveLeft() {
+        if (this.lastInputDirection.x === 1) return; // Prevent reversing left when going right
+        this.inputDirection = { x: -1, y: 0 };
+    }
+
+    moveRight() {
+        if (this.lastInputDirection.x === -1) return; // Prevent reversing right when going left
+        this.inputDirection = { x: 1, y: 0 };
+    }
 
     main(currentTime?: any) {
         if (this.main) window.requestAnimationFrame(this.main.bind(this))
