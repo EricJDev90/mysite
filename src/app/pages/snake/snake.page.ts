@@ -28,7 +28,7 @@ export class SnakePage implements OnInit {
 
 
     //Set the constants for how the game will run
-    SNAKE_SPEED = 6;
+    SNAKE_SPEED = 4;
     EXPANSION_RATE = 1;
     GRID_SIZE = 21; //21 squares for the horizontal game board and 21 for the vertical game board
 

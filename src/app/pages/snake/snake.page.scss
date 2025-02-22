@@ -28,11 +28,24 @@ main {
 }
 
 #splashscreen {
-    background-color: aqua;
     width: 80vw;
     height: 80vh;
     text-align: center;
+    animation: rotate-bg-color 30s infinite;
 }
+
+@keyframes rotate-bg-color {
+  0% {
+    background-color: steelblue;
+  }
+  50% {
+    background-color: indigo;
+  }
+  100% {
+    background-color: steelblue;
+  }
+}
+
 
 #splashscreen-content {
     margin-top: 35vh;
@@ -48,5 +61,5 @@ main {
     margin-left: auto;
     margin-right: auto;
     margin-top: 3vh;
-    width: 25%;
+    width: 40%;
 }
