@@ -48,7 +48,6 @@ export type HomePageData = {
 
 export type ProjectsPageData = {
     Title: string;
-    Message: string;
     Projects: Project[];
 }
 
