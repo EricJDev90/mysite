@@ -19,7 +19,7 @@
     ],
     "HomePage" : {
       "MessageLabel": "Welcome!",
-      "Message": "I'm Eric and I'm a full stack software engineer mainly utilizing Angular, C#, and Python. This is where I do small side projects.",
+      "Message": "I'm Eric. I'm a full stack software engineer. I write code",
       "RecruiterMessage": "You can reach me from the contact page"
     },
     "ContactPage": {
@@ -30,7 +30,6 @@
     },
     "ProjectsPage": {
         "Title": "Projects",
-        "Message": "These are the projects im working on",
         "Projects": [
             {
                 "Name": "Super Simple PDF Merge",
