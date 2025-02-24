@@ -40,6 +40,10 @@
     font-size: 18px;
   }
 
+  .padding-top-75px {
+    padding-top: 75px;
+  }
+
   .mobile {
     display: none;
   }
@@ -55,9 +59,10 @@
     align-items: center;
   }
 
-.container {
+.home-container {
   text-align: center;
-  width: 75vw;
+  width: 100vw;
+  height: 100vh;
   margin: auto;
   position: absolute;
   left: 0;
@@ -68,13 +73,48 @@
   }
 }
 
-.active-tab {
-  background-color:var(--ion-background-color);
+.container {
+  text-align: center;
+  width: 75vw;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100px;
+  
+  a {
+    text-decoration: none;
+  }
 }
 
-.container {
-  position: relative;
-  top: 100px;
+.titleBackground {
+  background: linear-gradient(139deg, #79ac12, #4c6913, #c7ceba, #2a7a4c, #1c173f, #2d17c6, #6251d7);
+  background-size: 1400% 1400%;
+  height: 100vh;
+
+  -webkit-animation: AnimationName 42s ease infinite;
+  -moz-animation: AnimationName 42s ease infinite;
+  animation: AnimationName 42s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 10%}
+  50%{background-position:100% 91%}
+  100%{background-position:0% 10%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 10%}
+  50%{background-position:100% 91%}
+  100%{background-position:0% 10%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 10%}
+  50%{background-position:100% 91%}
+  100%{background-position:0% 10%}
+}
+
+.active-tab {
+  background-color:var(--ion-background-color);
 }
 
 .pageTitle {
@@ -124,32 +164,6 @@
   color: #fff;
   color: color-mix(in srgb, currentColor 50%, transparent);
   font-size: 5em;
-  padding: 25px 5vw 100px 5vw
-}
-
-.titleBackground {
-  background: linear-gradient(139deg, #79ac12, #4c6913, #c7ceba, #2a7a4c, #1c173f, #2d17c6, #6251d7);
-  background-size: 1400% 1400%;
-
-  -webkit-animation: AnimationName 42s ease infinite;
-  -moz-animation: AnimationName 42s ease infinite;
-  animation: AnimationName 42s ease infinite;
-}
-
-@-webkit-keyframes AnimationName {
-  0%{background-position:0% 10%}
-  50%{background-position:100% 91%}
-  100%{background-position:0% 10%}
-}
-@-moz-keyframes AnimationName {
-  0%{background-position:0% 10%}
-  50%{background-position:100% 91%}
-  100%{background-position:0% 10%}
-}
-@keyframes AnimationName {
-  0%{background-position:0% 10%}
-  50%{background-position:100% 91%}
-  100%{background-position:0% 10%}
 }
 
 .pageBackground {

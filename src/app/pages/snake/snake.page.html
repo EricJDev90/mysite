@@ -1,24 +1,21 @@
 
-<body>
-    <h1>Snake in JS</h1>
-    <h2>Score:</h2>
-    <h2 id="score-board">0</h2>
-    <main>
-        <!--Create main game board-->
-        <div id="game-board"></div>
-        <!--Create cover for start screen-->
-        <div id="splashscreen"> 
-            <div id="splashscreen-content">
-                <h2>Snake</h2>
-                <input id="startbutton" type="button" value="Start" (click)="startFunction()"/>
-                <div id="controls-style">
-                    <p>Mobile Controls: </p>
-                    <p>Swipe to move</p>
-                    <br/>
-                    <p>PC Controls:</p>
-                    <p>Arrow keys</p>
-                </div>
+<h2 class="padding-top-75px">Score:</h2>
+<h2 id="score-board">0</h2>
+<div class="snake-page">
+    <!--Create main game board-->
+    <div id="game-board"></div>
+    <!--Create cover for start screen-->
+    <div id="splashscreen"> 
+        <div id="splashscreen-content">
+            <h2>Snake</h2>
+            <input id="startbutton" type="button" value="Start" (click)="startFunction()"/>
+            <div id="controls-style">
+                <p>Mobile Controls: </p>
+                <p>Swipe to move</p>
+                <br/>
+                <p>PC Controls:</p>
+                <p>Arrow keys</p>
             </div>
         </div>
-    </main>
-</body>
+    </div>
+</div>
