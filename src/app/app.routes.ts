@@ -27,6 +27,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/snake/snake.page').then(m => m.SnakePage)
   },
   {
+    path: 'projects/titanic',
+    loadComponent: () => import('./pages/titanic/titanic.page').then(m => m.TitanicPage)
+  },
+  {
     path: '**',
     loadComponent: () => import('./pages/page-not-found/page-not-found.page').then( m => m.PageNotFoundPage)
   },

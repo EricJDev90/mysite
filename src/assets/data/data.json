@@ -44,6 +44,13 @@
                 "Route": "snake",
                 "DisplayImageLocation": "assets/img/snake.png",
                 "ImgAlt": "Play Snake!"
+            },
+            {
+                "Name": "Titanic Data",
+                "Description": "Would you die on the titanic?",
+                "Route": "titanic",
+                "DisplayImageLocation": "assets/img/titanic.png",
+                "ImgAlt": "Titanic"
             }
         ]
     },
@@ -59,5 +66,9 @@
         "AddPDFsLabel": "Add PDFs",
         "MergeLabel": "Merge PDFs!",
         "ResetLabel": "Reset"
+    },
+    "TitanicPage": {
+        "Title": "How likely were you to die on the Titanic?",
+        "Message": "Set information to calculate your chances of survival if you were on the Titanic"
     }
 }
