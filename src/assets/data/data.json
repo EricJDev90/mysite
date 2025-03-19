@@ -44,8 +44,24 @@
                 "Route": "snake",
                 "DisplayImageLocation": "assets/img/snake.png",
                 "ImgAlt": "Play Snake!"
+            },
+            {
+                "Name": "Split Cipher",
+                "Description": "Encode or decode messages",
+                "Route": "cipher",
+                "DisplayImageLocation": "assets/img/cipher.png",
+                "ImgAlt": "Cipher"
             }
         ]
+    },
+    "CipherPageData": {
+        "Title": "Split Cipher",
+        "Message": "Fun little cipher encoder/decoder I built with a free afternoon",
+        "InputPlaceholderMessage": "Enter text to encode or decode",
+        "EncodeButtonText": "Encode",
+        "DecodeButtonText": "Decode",
+        "ErrorMessageEncode": "Data is formatted incorrectly. Only a-z, 0-9 and spaces allowed.",
+        "ErrorMessageDecode": "Decoding allows only 0, 1, or 2" 
     },
     "SSPDF": {
         "Title": "Super Simple PDF Merge Tool",

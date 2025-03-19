@@ -6,6 +6,11 @@ export type DataModel = {
     HomePage: HomePageData;
     ProjectsPage: ProjectsPageData;
     SSPDF: SSPDFPageData;
+    CipherPageData: CipherPageData;
+}
+
+export type CipherKeyModel = {
+    [key: string]: string;
 }
 
 export type RouteModel = {
@@ -71,4 +76,20 @@ export type SSPDFPageData = {
     AddPDFsLabel: string;
     MergeLabel: string;
     ResetLabel: string;
+}
+
+export type CipherPageData  = {
+    Title: string;
+    Message: string;
+    InputPlaceholderMessage: string;
+    EncodeButtonText: string;
+    DecodeButtonText: string;
+    ErrorMessageEncode: string;
+    ErrorMessageDecode: string;
+}
+
+//Enums
+export enum DataType {
+  COREDATA,
+  CIPHERDATA
 }

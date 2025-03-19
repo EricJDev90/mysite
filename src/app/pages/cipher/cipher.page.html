@@ -1,0 +1,29 @@
+<ion-content>
+  <div class="container">
+    @if(cipherPageData) {
+      <div class="pageBackground">
+        <ion-title class="pageTitle">{{cipherPageData.Title}}</ion-title>
+        <p class="pageExtra">{{cipherPageData.Message}}</p>
+    </div>
+    <ion-textarea [(ngModel)]="inputString" label="Enter Text" labelPlacement="floating" [autoGrow]="true" fill="outline" placeholder="{{cipherPageData.InputPlaceholderMessage}}"></ion-textarea>
+    <ion-row>
+      <ion-col>
+          <ion-button (click)="encode()" color="warning" expand="block">{{cipherPageData.EncodeButtonText}}</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="decode()" color="danger" expand="block">{{cipherPageData.DecodeButtonText}}</ion-button>
+    </ion-col>
+  </ion-row>
+    <ion-item>
+      <ion-textarea [(ngModel)]="outputMessage" [autoGrow]="true" [readonly]="true"></ion-textarea>
+    </ion-item>
+    }
+  </div>
+
+  <ion-toast
+        [isOpen]="isToastOpen"
+        [message]="toastMessage"
+        [duration]="5000"
+        (didDismiss)="setOpen(false, '')"
+    ></ion-toast>
+</ion-content>
