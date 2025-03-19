@@ -56,7 +56,7 @@
     },
     "CipherPageData": {
         "Title": "Split Cipher",
-        "Message": "Fun little cipher encoder/decoder I built with a free afternoon",
+        "Message": "Fun little cipher encoder/decoder I built with a free afternoon. This project takes a json key-value object and uses it to encode or decode messages.",
         "InputPlaceholderMessage": "Enter text to encode or decode",
         "EncodeButtonText": "Encode",
         "DecodeButtonText": "Decode",
