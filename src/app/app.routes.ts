@@ -27,6 +27,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/snake/snake.page').then(m => m.SnakePage)
   },
   {
+    path: 'projects/cipher',
+    loadComponent: () => import('./pages/cipher/cipher.page').then(m => m.CipherPage)
+  },
+  {
     path: '**',
     loadComponent: () => import('./pages/page-not-found/page-not-found.page').then( m => m.PageNotFoundPage)
   },
