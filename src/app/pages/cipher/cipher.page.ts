@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { IonContent, IonTitle, IonButton, IonItem, IonTextarea, IonRow, IonCol, IonToast } from '@ionic/angular/standalone';
+import { IonContent, IonButton, IonItem, IonTextarea, IonRow, IonCol, IonToast } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GlobalStateService } from 'src/app/services/global-state.service';
@@ -9,7 +9,7 @@ import { HelperService } from 'src/app/services/helper.service';
 @Component({
   selector: 'app-cipher',
   templateUrl: './cipher.page.html',
-  imports: [IonContent, IonTitle, IonButton, CommonModule, FormsModule, IonItem, IonTextarea, IonRow, IonCol, IonToast]
+  imports: [IonContent, IonButton, CommonModule, FormsModule, IonItem, IonTextarea, IonRow, IonCol, IonToast]
 })
 export class CipherPage  implements OnInit {
   private stateService = inject(GlobalStateService);

@@ -36,8 +36,6 @@
 * {
     font-family: "Fanwood Text", serif;
     font-weight: 400;
-    font-style: normal;
-    font-size: 18px;
   }
 
   .padding-top-75px {
@@ -87,6 +85,53 @@
   }
 }
 
+
+
+.active-tab {
+  background-color:var(--ion-background-color);
+}
+
+.pageTitle {
+  font-size: 2em;
+  padding: 50px 0 50px 0;
+}
+
+.pageExtra {
+  font-size: 1.1em;
+  padding: 0 0 75px 0
+}
+
+
+//Small screen sizes
+@media screen and (max-width: 1000px) {
+
+    .desktop {
+      display: none;
+    }
+
+    .mobile {
+      display: block;
+    }
+}
+
+.contactPadding {
+  padding-top: 20vh;
+}
+
+//Home specific
+.homeTitle {
+  color: #fff;
+  color: color-mix(in srgb, currentColor 50%, transparent);
+  font-size: 5em;
+  padding: 250px 5vw 150px 5vw
+}
+
+.homeExtraText {
+  color: #fff;
+  color: color-mix(in srgb, currentColor 50%, transparent);
+}
+
+//Animations for Home Page
 .titleBackground {
   background: linear-gradient(139deg, #79ac12, #4c6913, #c7ceba, #2a7a4c, #1c173f, #2d17c6, #6251d7);
   background-size: 1400% 1400%;
@@ -113,59 +158,7 @@
   100%{background-position:0% 10%}
 }
 
-.active-tab {
-  background-color:var(--ion-background-color);
-}
-
-.pageTitle {
-  font-size: 2em;
-  padding: 50px 0 50px 0
-}
-
-.contactPadding {
-  padding-top: 20vh;
-}
-
-.pageExtra {
-  font-size: 1.1em;
-  padding: 0 0 75px 0
-}
-
-.homeTitle {
-  color: #fff;
-  color: color-mix(in srgb, currentColor 50%, transparent);
-  font-size: 7em;
-  padding: 250px 5vw 150px 5vw
-}
-
-@media screen and (max-width: 1000px) {
-    .homeTitle {
-        font-size: 3em;
-    }
-
-    .pageContactTitle {
-        font-size: 3em;
-    }
-
-    .pageTitle {
-        font-size: 3em;
-    }
-
-    .desktop {
-      display: none;
-    }
-
-    .mobile {
-      display: block;
-    }
-}
-
-.homeExtraText {
-  color: #fff;
-  color: color-mix(in srgb, currentColor 50%, transparent);
-  font-size: 5em;
-}
-
+//Animations for other page banners
 .pageBackground {
   background: linear-gradient(179deg, #561ba7, #130faa);
   background-size: 400% 400%;
@@ -173,22 +166,6 @@
   -webkit-animation: AnimationName 60s ease infinite;
   -moz-animation: AnimationName 60s ease infinite;
   animation: AnimationName 60s ease infinite;
-}
-
-@-webkit-keyframes AnimationName {
-  0%{background-position:50% 0%}
-  50%{background-position:51% 100%}
-  100%{background-position:50% 0%}
-}
-@-moz-keyframes AnimationName {
-  0%{background-position:50% 0%}
-  50%{background-position:51% 100%}
-  100%{background-position:50% 0%}
-}
-@keyframes AnimationName {
-  0%{background-position:50% 0%}
-  50%{background-position:51% 100%}
-  100%{background-position:50% 0%}
 }
 
 app-projects {
@@ -202,7 +179,7 @@ app-projects {
   text-align: left;
 }
 
-/* Loading Spinner*/
+//Loading Spinner
 .spinner-container {
   position: fixed;
   height: 100%;

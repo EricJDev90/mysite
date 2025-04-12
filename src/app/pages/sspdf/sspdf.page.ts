@@ -1,5 +1,5 @@
 import { Component, OnInit, inject, } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, IonItem, IonLabel, IonRow, IonCol, IonButton, IonCheckbox, IonToast, IonInput} from '@ionic/angular/standalone';
+import { IonContent, IonItem, IonLabel, IonRow, IonCol, IonButton, IonCheckbox, IonToast, IonInput} from '@ionic/angular/standalone';
 import { GlobalStateService } from 'src/app/services/global-state.service';
 import { DataModel } from 'src/app/types/globalTypes';
 import PDFMerger from 'pdf-merger-js';
@@ -16,7 +16,6 @@ interface PDFFile {
     templateUrl: 'sspdf.page.html',
     imports: [
         IonItem,
-        IonTitle,
         IonContent,
         IonLabel,
         IonRow,

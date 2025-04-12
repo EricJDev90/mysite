@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon, IonMenu, IonMenuToggle, IonMenuButton, IonButtons, MenuController} from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonContent, IonButton, IonIcon, IonMenu, IonMenuToggle, IonMenuButton, IonButtons, MenuController} from '@ionic/angular/standalone';
 import { GlobalStateService } from 'src/app/services/global-state.service';
 import { DataModel } from 'src/app/types/globalTypes';
 import * as icons from 'ionicons/icons';
@@ -14,7 +14,6 @@ import { addIcons } from 'ionicons';
         CommonModule,
         IonHeader,
         IonToolbar,
-        IonTitle,
         IonContent,
         IonButton,
         RouterLink,

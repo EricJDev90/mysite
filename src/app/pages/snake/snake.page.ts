@@ -19,6 +19,7 @@ export class SnakePage implements OnInit {
     pageWidth: number = window.innerWidth;
     threshold: number = Math.max(1,Math.floor(0.01 * (this.pageWidth)));
     limit: number = Math.tan(45 * 1.5 / 180 * Math.PI);
+    preventNewMovement = false;
 
     //Mobile vars
     touchstartX: number = 0;
@@ -86,42 +87,46 @@ export class SnakePage implements OnInit {
         // Keyboard controls
         window.addEventListener('keydown', e => {
             this.lastInputDirection = this.inputDirection;
-            switch (e.key) {
-                case 'ArrowUp':
-                    this.moveUp();
-                    break;
-                case 'ArrowDown':
-                    this.moveDown();
-                    break;
-                case 'ArrowLeft':
-                    this.moveLeft();
-                    break;
-                case 'ArrowRight':
-                    this.moveRight();
-                    break;
+            if (!this.preventNewMovement) {
+                switch (e.key) {
+                    case 'ArrowUp':
+                        this.moveUp();
+                        break;
+                    case 'ArrowDown':
+                        this.moveDown();
+                        break;
+                    case 'ArrowLeft':
+                        this.moveLeft();
+                        break;
+                    case 'ArrowRight':
+                        this.moveRight();
+                        break;
+                }
             }
         });
     }
 
     //mobile gestures
     handleGesure() {
-        let x = this.touchendX - this.touchstartX;
-        let y = this.touchendY - this.touchstartY;
-        let xy = Math.abs(x / y);
-        let yx = Math.abs(y / x);
-        if (Math.abs(x) > this.threshold || Math.abs(y) > this.threshold) {
-            if (yx <= this.limit) {
-                if (x < 0) {
-                    this.moveLeft();
-                } else {
-                    this.moveRight();
+        if (!this.preventNewMovement) {
+            let x = this.touchendX - this.touchstartX;
+            let y = this.touchendY - this.touchstartY;
+            let xy = Math.abs(x / y);
+            let yx = Math.abs(y / x);
+            if (Math.abs(x) > this.threshold || Math.abs(y) > this.threshold) {
+                if (yx <= this.limit) {
+                    if (x < 0) {
+                        this.moveLeft();
+                    } else {
+                        this.moveRight();
+                    }
                 }
-            }
-            if (xy <= this.limit) {
-                if (y < 0) {
-                    this.moveUp();
-                } else {
-                    this.moveDown();
+                if (xy <= this.limit) {
+                    if (y < 0) {
+                        this.moveUp();
+                    } else {
+                        this.moveDown();
+                    }
                 }
             }
         }
@@ -130,28 +135,32 @@ export class SnakePage implements OnInit {
     moveUp() {
         if (this.lastInputDirection.y === 1) return; // Prevent reversing up when going down
         this.inputDirection = { x: 0, y: -1 };
+        this.preventNewMovement = true; //Stop new movements from being input until the screen is redrawn
     }
 
     moveDown() {
         if (this.lastInputDirection.y === -1) return; // Prevent reversing down when going up
         this.inputDirection = { x: 0, y: 1 };
+        this.preventNewMovement = true;
     }
 
     moveLeft() {
         if (this.lastInputDirection.x === 1) return; // Prevent reversing left when going right
         this.inputDirection = { x: -1, y: 0 };
+        this.preventNewMovement = true;
     }
 
     moveRight() {
         if (this.lastInputDirection.x === -1) return; // Prevent reversing right when going left
         this.inputDirection = { x: 1, y: 0 };
+        this.preventNewMovement = true;
     }
 
     main(currentTime?: any) {
         if (this.main) window.requestAnimationFrame(this.main.bind(this))
         const secondsSinceLastRender = (currentTime - this.lastRenderTime) / 1000
         const speedUpFactor = 1 / (this.SNAKE_SPEED + (this.snakeBody.length * 0.5)) 
-        if (secondsSinceLastRender < speedUpFactor) return;
+        if (secondsSinceLastRender < speedUpFactor) return;  
         this.lastRenderTime = currentTime
         this.update()
         this.draw()
@@ -186,6 +195,7 @@ export class SnakePage implements OnInit {
             this.food = this.getRandomFoodPosition() //generate new food position
         }
         this.checkDeath(); //finally, check if the snake is either outside of the boundary or running into itself
+        this.preventNewMovement = false; //once the update is done, allow new movement again
     }
 
     drawFood(gameBoard: any) { //draw a new food piece, using the same logic as drawing the snake, minus looping through each segment

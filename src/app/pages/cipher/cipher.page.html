@@ -2,7 +2,7 @@
   <div class="container">
     @if(cipherPageData) {
       <div class="pageBackground">
-        <ion-title class="pageTitle">{{cipherPageData.Title}}</ion-title>
+        <div class="pageTitle">{{cipherPageData.Title}}</div>
         <p class="pageExtra">{{cipherPageData.Message}}</p>
     </div>
     <ion-textarea [(ngModel)]="inputString" label="Enter Text" labelPlacement="floating" [autoGrow]="true" fill="outline" placeholder="{{cipherPageData.InputPlaceholderMessage}}"></ion-textarea>
