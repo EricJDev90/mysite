@@ -86,7 +86,6 @@ export class SnakePage implements OnInit {
     
         // Keyboard controls
         window.addEventListener('keydown', e => {
-            this.lastInputDirection = this.inputDirection;
             if (!this.preventNewMovement) {
                 switch (e.key) {
                     case 'ArrowUp':
@@ -135,24 +134,28 @@ export class SnakePage implements OnInit {
     moveUp() {
         if (this.lastInputDirection.y === 1) return; // Prevent reversing up when going down
         this.inputDirection = { x: 0, y: -1 };
+        this.lastInputDirection = this.inputDirection;
         this.preventNewMovement = true; //Stop new movements from being input until the screen is redrawn
     }
 
     moveDown() {
         if (this.lastInputDirection.y === -1) return; // Prevent reversing down when going up
         this.inputDirection = { x: 0, y: 1 };
+        this.lastInputDirection = this.inputDirection;
         this.preventNewMovement = true;
     }
 
     moveLeft() {
         if (this.lastInputDirection.x === 1) return; // Prevent reversing left when going right
         this.inputDirection = { x: -1, y: 0 };
+        this.lastInputDirection = this.inputDirection;
         this.preventNewMovement = true;
     }
 
     moveRight() {
         if (this.lastInputDirection.x === -1) return; // Prevent reversing right when going left
         this.inputDirection = { x: 1, y: 0 };
+        this.lastInputDirection = this.inputDirection;
         this.preventNewMovement = true;
     }
 

@@ -9,22 +9,22 @@
         </div>
 
         <form [formGroup]="formGroup" (ngSubmit)="mergePDFs()">
-            <ion-label>{{data.SSPDF.FileNameLabel}}</ion-label>
+            <h2>{{data.SSPDF.FileNameLabel}}</h2>
             <ion-row>
-                <ion-col size-md="4" offset-md="4">
+                <ion-col>
                     <ion-item>
                         <ion-input formControlName="fileName"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
 
-            <div class="uploadedFiles">
-                <ion-row>
-                    <ion-col>
-                        <h2><u>{{data.SSPDF.FileListLabel}}</u></h2>
-                    </ion-col>
-                </ion-row>
+            <ion-row>
+                <ion-col>
+                    <h2>{{data.SSPDF.FileListLabel}}</h2>
+                </ion-col>
+            </ion-row>
 
+            <div class="uploadedFiles">
                 @for(file of files; track file.title) {
                     <ion-row>
                         <ion-col>
@@ -38,10 +38,10 @@
 
             <ion-row>
                 <ion-col>
-                    <ion-button (click)="removeSelected()" color="warning" expand="block">{{data.SSPDF.RemoveLabel}}</ion-button>
+                    <ion-button (click)="fileUpload.click()" expand="block">{{data.SSPDF.AddPDFsLabel}}</ion-button>
                 </ion-col>
                 <ion-col>
-                    <ion-button (click)="fileUpload.click()" expand="block">{{data.SSPDF.AddPDFsLabel}}</ion-button>
+                    <ion-button (click)="removeSelected()" color="warning" expand="block">{{data.SSPDF.RemoveLabel}}</ion-button>
                 </ion-col>
             </ion-row>
 
