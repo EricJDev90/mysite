@@ -38,8 +38,8 @@
     font-weight: 400;
   }
 
-  .padding-top-75px {
-    padding-top: 75px;
+  .padding-top-100px {
+    padding-top: 100px;
   }
 
   .mobile {
@@ -92,12 +92,12 @@
 }
 
 .pageTitle {
-  font-size: 30px;
+  font-size: 50px;
   padding: 50px 0 50px 0;
 }
 
 .pageExtra {
-  font-size: 1.1em;
+  font-size: 1.2em;
   padding: 0 0 75px 0
 }
 
@@ -112,6 +112,10 @@
     .mobile {
       display: block;
     }
+
+    .homeTitle {
+      font-size: 18vw !important;
+    }
 }
 
 .contactPadding {
@@ -122,7 +126,7 @@
 .homeTitle {
   color: #fff;
   color: color-mix(in srgb, currentColor 50%, transparent);
-  font-size:15vw;
+  font-size:10vw;
   padding: 250px 5vw 150px 5vw
 }
 
@@ -195,4 +199,12 @@ app-projects {
 
 ion-label {
   font-size: 20px;
+}
+
+ion-toolbar {
+  font-size: 25px;
+
+  ion-button {
+    font-size: 20px;
+  }
 }
